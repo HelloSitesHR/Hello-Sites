@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR" >
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Modelo | Erro 404</title>
+	<style>
+		h1, h2, p{ 
+			text-align:center;}
+		p{
+			color: rgba(0,0,0,0.4);}
+		h1 {
+			animation: fade-up 1000ms;}
+		h2{
+			animation: fade-up 1000ms; animation-delay: 500ms;}
+		body {
+			font-family: 'Nunito', Arial, sans-serif;}
+			
+		#counter{
+			color: rgba(255,0,0,0.4);}
+		#message {
+			position: absolute;
+			width: 80vw; height: 20vh;
+			margin-left: 10vw; margin-top: calc(40vh + 8vw);
+			}
+		#hello {
+			/* temp url*/
+			background: url('https://hellosites.ml/modelo-arquitetura/wp-content/uploads/2020/12/HelloSitesLogo2.png');
+			/* temp url*/
+			background-size: contain;
+			position: absolute;
+			width: 16vw; height: 16vw;
+			margin-left: 42vw; margin-top: calc(40vh - 8vw);
+			opacity: 0;
+			animation: appear 2000ms; animation-delay: 1000ms;animation-fill-mode: forwards;}
+			
+		@keyframes appear {
+			from{
+				opacity: 0;}
+			to {
+				opacity: 1;}}
+		@keyframes fade-up {
+			from{
+				margin-top: 100vh;opacity: 0; margin-bottom: 100vw;}
+			to {
+				margin-bottom: 0;opacity: 1; margin-bottom: initial;}}
+			
+	</style>
+</head>
+<body class="error404">
+
+<div id="page" class="site">
+	<div id="hello"></div>
+	
+	<div id="message">
+	<h1>ERRO 404</h1>
+	<h2>Não encontramos nada aqui.</h2>
+	<p><span class="counter-msg-del">Voltando em</span> <span id="counter"></span>. <a id="stopCounter" class="counter-msg-del" onclick="stopCounter()"> <br>[Parar]</a></p>
+	<div>
+</div>
+
+<script language="javascript">
+	
+	const timer = 7;
+	let counter = timer;
+	
+	let stop = false;
+	
+	let show = document.getElementById('counter');
+	const intrv = setInterval(function (){
+		if(counter > 0 && stop==false){
+		counter--;
+		show.innerHTML = counter;
+		}else if(stop==false){
+			clearInterval(intrv)
+			window.history.back()
+		}
+		}, 1000)
+		
+	function stopCounter(){
+	stop = true;
+	const toDelElements = document.getElementsByClassName('counter-msg-del');
+		
+		for(let i=0; i < toDelElements.length; i++){
+		toDelElements[i].innerHTML = "";
+		}
+		show.innerHTML = "Cancelado com sucesso."
+		clearInterval(intrv)
+	}
+	
+</script>
+</body>
+</html>

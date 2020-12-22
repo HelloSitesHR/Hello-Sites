@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta http-equiv="Last-Modified" content="Tue, 22 Dec 2020 22:01:51 GMT">
+	<meta charset="UTF-8">
+		<title>about &#8211; Modelo Arquitetura</title>
+<link rel='dns-prefetch' href="/modelo-arquitetura//s.w.org" />
+		<script>
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/hellosites.ml\/modelo-arquitetura\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.6"}};
+			!function(e,a,t){var r,n,o,i,p=a.createElement("canvas"),s=p.getContext&&p.getContext("2d");function c(e,t){var a=String.fromCharCode;s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,e),0,0);var r=p.toDataURL();return s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,t),0,0),r===p.toDataURL()}function l(e){if(!s||!s.fillText)return!1;switch(s.textBaseline="top",s.font="600 32px Arial",e){case"flag":return!c([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])&&(!c([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!c([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]));case"emoji":return!c([55357,56424,8205,55356,57212],[55357,56424,8203,55356,57212])}return!1}function d(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(i=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},o=0;o<i.length;o++)t.supports[i[o]]=l(i[o]),t.supports.everything=t.supports.everything&&t.supports[i[o]],"flag"!==i[o]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[i[o]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(r=t.source||{}).concatemoji?d(r.concatemoji):r.wpemoji&&r.twemoji&&(d(r.twemoji),d(r.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style>
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-block-library-css'  href="/modelo-arquitetura/wp-includes/css/dist/block-library/style.min.css?ver=5.6" media='all' />
+<link rel='stylesheet' id='wp-block-library-theme-css'  href="/modelo-arquitetura/wp-includes/css/dist/block-library/theme.min.css?ver=5.6" media='all' />
+<link rel='stylesheet' id='twenty-twenty-one-style-css'  href="/modelo-arquitetura/wp-content/themes/twentytwentyone/style.css?ver=1.0" media='all' />
+<link rel='stylesheet' id='twenty-twenty-one-print-style-css'  href="/modelo-arquitetura/wp-content/themes/twentytwentyone/assets/css/print.css?ver=1.0" media='print' />
+<link rel='stylesheet' id='elementor-icons-ekiticons-css'  href="/modelo-arquitetura/wp-content/plugins/elementskit-lite/modules/controls/assets/css/ekiticons.css?ver=5.9.0" media='all' />
+<link rel='stylesheet' id='elementor-icons-css'  href="/modelo-arquitetura/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css?ver=5.9.1" media='all' />
+<link rel='stylesheet' id='elementor-animations-css'  href="/modelo-arquitetura/wp-content/plugins/elementor/assets/lib/animations/animations.min.css?ver=3.0.15" media='all' />
+<link rel='stylesheet' id='elementor-frontend-legacy-css'  href="/modelo-arquitetura/wp-content/plugins/elementor/assets/css/frontend-legacy.min.css?ver=3.0.15" media='all' />
+<link rel='stylesheet' id='elementor-frontend-css'  href="/modelo-arquitetura/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=3.0.15" media='all' />
+<style id='elementor-frontend-inline-css'>
+.ha-css-transform-yes{-webkit-transition-duration:var(--ha-tfx-transition-duration,.2s);transition-duration:var(--ha-tfx-transition-duration,.2s);-webkit-transition-property:-webkit-transform;transition-property:transform;transition-property:transform,-webkit-transform;-webkit-transform:translate(var(--ha-tfx-translate-x,0),var(--ha-tfx-translate-y,0)) scale(var(--ha-tfx-scale-x,1),var(--ha-tfx-scale-y,1)) skew(var(--ha-tfx-skew-x,0),var(--ha-tfx-skew-y,0)) rotateX(var(--ha-tfx-rotate-x,0)) rotateY(var(--ha-tfx-rotate-y,0)) rotateZ(var(--ha-tfx-rotate-z,0));transform:translate(var(--ha-tfx-translate-x,0),var(--ha-tfx-translate-y,0)) scale(var(--ha-tfx-scale-x,1),var(--ha-tfx-scale-y,1)) skew(var(--ha-tfx-skew-x,0),var(--ha-tfx-skew-y,0)) rotateX(var(--ha-tfx-rotate-x,0)) rotateY(var(--ha-tfx-rotate-y,0)) rotateZ(var(--ha-tfx-rotate-z,0))}.ha-css-transform-yes:hover{-webkit-transform:translate(var(--ha-tfx-translate-x-hover,var(--ha-tfx-translate-x,0)),var(--ha-tfx-translate-y-hover,var(--ha-tfx-translate-y,0))) scale(var(--ha-tfx-scale-x-hover,var(--ha-tfx-scale-x,1)),var(--ha-tfx-scale-y-hover,var(--ha-tfx-scale-y,1))) skew(var(--ha-tfx-skew-x-hover,var(--ha-tfx-skew-x,0)),var(--ha-tfx-skew-y-hover,var(--ha-tfx-skew-y,0))) rotateX(var(--ha-tfx-rotate-x-hover,var(--ha-tfx-rotate-x,0))) rotateY(var(--ha-tfx-rotate-y-hover,var(--ha-tfx-rotate-y,0))) rotateZ(var(--ha-tfx-rotate-z-hover,var(--ha-tfx-rotate-z,0)));transform:translate(var(--ha-tfx-translate-x-hover,var(--ha-tfx-translate-x,0)),var(--ha-tfx-translate-y-hover,var(--ha-tfx-translate-y,0))) scale(var(--ha-tfx-scale-x-hover,var(--ha-tfx-scale-x,1)),var(--ha-tfx-scale-y-hover,var(--ha-tfx-scale-y,1))) skew(var(--ha-tfx-skew-x-hover,var(--ha-tfx-skew-x,0)),var(--ha-tfx-skew-y-hover,var(--ha-tfx-skew-y,0))) rotateX(var(--ha-tfx-rotate-x-hover,var(--ha-tfx-rotate-x,0))) rotateY(var(--ha-tfx-rotate-y-hover,var(--ha-tfx-rotate-y,0))) rotateZ(var(--ha-tfx-rotate-z-hover,var(--ha-tfx-rotate-z,0)))}.happy-addon>.elementor-widget-container{word-wrap:break-word;overflow-wrap:break-word;box-sizing:border-box}.happy-addon>.elementor-widget-container *{box-sizing:border-box}.happy-addon p:empty{display:none}.happy-addon .elementor-inline-editing{min-height:auto!important}.happy-addon-pro img{max-width:100%;height:auto;-o-object-fit:cover;object-fit:cover}.ha-screen-reader-text{position:absolute;overflow:hidden;clip:rect(1px,1px,1px,1px);margin:-1px;padding:0;width:1px;height:1px;border:0;word-wrap:normal!important;-webkit-clip-path:inset(50%);clip-path:inset(50%)}.ha-has-background-overlay>.elementor-widget-container{position:relative;z-index:1}.ha-has-background-overlay>.elementor-widget-container:before{position:absolute;top:0;left:0;z-index:-1;width:100%;height:100%;content:""}.ha-popup--is-enabled .ha-js-popup,.ha-popup--is-enabled .ha-js-popup img{cursor:-webkit-zoom-in!important;cursor:zoom-in!important}.mfp-wrap .mfp-arrow,.mfp-wrap .mfp-close{background-color:transparent}.mfp-wrap .mfp-arrow:focus,.mfp-wrap .mfp-close:focus{outline-width:thin}
+</style>
+<link rel='stylesheet' id='elementor-post-807-css'  href="/modelo-arquitetura/wp-content/uploads/elementor/css/post-807.css?ver=1608674493" media='all' />
+<link rel='stylesheet' id='font-awesome-5-all-css'  href="/modelo-arquitetura/wp-content/plugins/elementor/assets/lib/font-awesome/css/all.min.css?ver=4.3.8" media='all' />
+<link rel='stylesheet' id='font-awesome-4-shim-css'  href="/modelo-arquitetura/wp-content/plugins/elementor/assets/lib/font-awesome/css/v4-shims.min.css?ver=4.3.8" media='all' />
+<link rel='stylesheet' id='she-header-style-css'  href="/modelo-arquitetura/wp-content/plugins/sticky-header-effects-for-elementor/assets/css/she-header-style.css?ver=1.4.3" media='all' />
+<link rel='stylesheet' id='elementskit-css-widgetarea-control-editor-css'  href="/modelo-arquitetura/wp-content/plugins/elementskit-lite/modules/controls/assets/css/widgetarea-editor.css?ver=2.0.13" media='all' />
+<link rel='stylesheet' id='elementor-global-css'  href="/modelo-arquitetura/wp-content/uploads/elementor/css/global.css?ver=1608674495" media='all' />
+<link rel='stylesheet' id='elementor-post-1470-css'  href="/modelo-arquitetura/wp-content/uploads/elementor/css/post-1470.css?ver=1608674511" media='all' />
+<link rel='stylesheet' id='ekit-widget-styles-css'  href="/modelo-arquitetura/wp-content/plugins/elementskit-lite/widgets/init/assets/css/widget-styles.css?ver=2.0.13" media='all' />
+<link rel='stylesheet' id='ekit-responsive-css'  href="/modelo-arquitetura/wp-content/plugins/elementskit-lite/widgets/init/assets/css/responsive.css?ver=2.0.13" media='all' />
+<link rel='stylesheet' id='happy-icons-css'  href="/modelo-arquitetura/wp-content/plugins/happy-elementor-addons/assets/fonts/style.min.css?ver=2.16.1" media='all' />
+<link rel='stylesheet' id='font-awesome-css'  href="/modelo-arquitetura/wp-content/plugins/elementor/assets/lib/font-awesome/css/font-awesome.min.css?ver=4.7.0" media='all' />
+<link rel='stylesheet' id='slick-css'  href="/modelo-arquitetura/wp-content/plugins/happy-elementor-addons/assets/vendor/slick/slick.css?ver=2.16.1" media='all' />
+<link rel='stylesheet' id='slick-theme-css'  href="/modelo-arquitetura/wp-content/plugins/happy-elementor-addons/assets/vendor/slick/slick-theme.css?ver=2.16.1" media='all' />
+<link rel='stylesheet' id='happy-elementor-addons-1470-css'  href="/modelo-arquitetura/wp-content/uploads/happyaddons/css/ha-1470.css?ver=2.16.1.1608387036" media='all' />
+<link rel='stylesheet' id='google-fonts-1-css'  href='https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto+Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CNova+Oval%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CNunito%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;ver=5.6' media='all' />
+<link rel='stylesheet' id='elementor-icons-shared-0-css'  href="/modelo-arquitetura/wp-content/plugins/elementor/assets/lib/font-awesome/css/fontawesome.min.css?ver=5.12.0" media='all' />
+<link rel='stylesheet' id='elementor-icons-fa-solid-css'  href="/modelo-arquitetura/wp-content/plugins/elementor/assets/lib/font-awesome/css/solid.min.css?ver=5.12.0" media='all' />
+<link rel='stylesheet' id='elementor-icons-shared-1-css'  href="/modelo-arquitetura/wp-content/plugins/happy-elementor-addons/assets/fonts/style.min.css?ver=2.16.1" media='all' />
+<link rel='stylesheet' id='elementor-icons-happy-icons-css'  href="/modelo-arquitetura/wp-content/plugins/happy-elementor-addons/assets/fonts/style.min.css?ver=2.16.1" media='all' />
+<link rel='stylesheet' id='elementor-icons-fa-regular-css'  href="/modelo-arquitetura/wp-content/plugins/elementor/assets/lib/font-awesome/css/regular.min.css?ver=5.12.0" media='all' />
+<script src="/modelo-arquitetura/wp-includes/js/jquery/jquery.min.js?ver=3.5.1" id='jquery-core-js'></script>
+<script src="/modelo-arquitetura/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2" id='jquery-migrate-js'></script>
+<script src="/modelo-arquitetura/wp-content/plugins/sticky-header-effects-for-elementor/assets/js/she-header.js?ver=1.4.3" id='she-header-js'></script>
+<script src="/modelo-arquitetura/wp-content/plugins/elementor/assets/lib/font-awesome/js/v4-shims.min.js?ver=4.3.8" id='font-awesome-4-shim-js'></script>
+<link rel="https://api.w.org/" href="/modelo-arquitetura/wp-json/" /><link rel="alternate" type="application/json" href="/modelo-arquitetura/wp-json/wp/v2/pages/1470" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="/modelo-arquitetura/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="/modelo-arquitetura/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.6 with StaticPress ver.0.4.5" />
+<link rel="canonical" href="https://hellosites.ml/modelo-arquitetura/about/" />
+<link rel="alternate" type="application/json+oembed" href="/modelo-arquitetura/wp-json/oembed/1.0/embed?url=http%3A%2F%2Flocalhost%2Fabout%2F" />
+<style>.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style><link rel="icon" href="/modelo-arquitetura/wp-content/uploads/2020/12/HelloSitesLogo2-150x150.png" sizes="32x32" />
+<link rel="icon" href="/modelo-arquitetura/wp-content/uploads/2020/12/HelloSitesLogo2-300x300.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="/modelo-arquitetura/wp-content/uploads/2020/12/HelloSitesLogo2-300x300.png" />
+<meta name="msapplication-TileImage" content="https://hellosites.ml/modelo-arquitetura/wp-content/uploads/2020/12/HelloSitesLogo2-300x300.png" />
+		<style id="wp-custom-css">
+			.mfp-close{
+	width: 0px !important;
+	height:0px !important;
+	position: absolute;
+	top:-1rem !important;
+	font-size: 2rem !important;
+	cursor:  !important;
+}
+		</style>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" /></head>
+<body class="page-template page-template-elementor_canvas page page-id-1470 wp-embed-responsive is-light-theme no-js singular elementor-default elementor-template-canvas elementor-kit-807 elementor-page elementor-page-1470">
+			<div data-elementor-type="wp-page" data-elementor-id="1470" class="elementor elementor-1470" data-elementor-settings="[]">
+						<div class="elementor-inner">
+							<div class="elementor-section-wrap">
+							<header class="elementor-section elementor-top-section elementor-element elementor-element-6310c5e1 elementor-section-items-top elementor-section-full_width elementor-section-height-min-height elementor-section-height-default" data-id="6310c5e1" data-element_type="section" id="home" data-settings="{&quot;background_background&quot;:&quot;slideshow&quot;,&quot;background_slideshow_gallery&quot;:[{&quot;id&quot;:361,&quot;url&quot;:&quot;https:\/\/hellosites.ml\/modelo-arquitetura\/wp-content\/uploads\/2020\/12\/interior-1.jpg&quot;},{&quot;id&quot;:364,&quot;url&quot;:&quot;https:\/\/hellosites.ml\/modelo-arquitetura\/wp-content\/uploads\/2020\/12\/interior-4.jpg&quot;},{&quot;id&quot;:440,&quot;url&quot;:&quot;https:\/\/hellosites.ml\/modelo-arquitetura\/wp-content\/uploads\/2020\/12\/interior-20-scaled.jpg&quot;},{&quot;id&quot;:362,&quot;url&quot;:&quot;https:\/\/hellosites.ml\/modelo-arquitetura\/wp-content\/uploads\/2020\/12\/interior-2.jpg&quot;},{&quot;id&quot;:437,&quot;url&quot;:&quot;https:\/\/hellosites.ml\/modelo-arquitetura\/wp-content\/uploads\/2020\/12\/interior-17-scaled.jpg&quot;},{&quot;id&quot;:431,&quot;url&quot;:&quot;https:\/\/hellosites.ml\/modelo-arquitetura\/wp-content\/uploads\/2020\/12\/interior-11.jpg&quot;},{&quot;id&quot;:366,&quot;url&quot;:&quot;https:\/\/hellosites.ml\/modelo-arquitetura\/wp-content\/uploads\/2020\/12\/interior-6-scaled.jpg&quot;},{&quot;id&quot;:427,&quot;url&quot;:&quot;https:\/\/hellosites.ml\/modelo-arquitetura\/wp-content\/uploads\/2020\/12\/interior-7-scaled.jpg&quot;}],&quot;background_slideshow_slide_transition&quot;:&quot;slide_down&quot;,&quot;background_slideshow_slide_duration&quot;:6000,&quot;background_slideshow_loop&quot;:&quot;yes&quot;,&quot;background_slideshow_transition_duration&quot;:500,&quot;ekit_has_onepagescroll_dot&quot;:&quot;yes&quot;}">
+							<div class="elementor-background-overlay"></div>
+							<div class="elementor-container elementor-column-gap-no">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-257e39d5" data-id="257e39d5" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-4dbf936c elementor-widget__width-auto elementor-hidden-phone elementor-widget elementor-widget-heading" data-id="4dbf936c" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h1 class="elementor-heading-title elementor-size-default">Modelo<span style="text-transform:none;position:absolute;font-size:3vw;right:1vw;bottom:-3vw;">Arquitetura</span></h1>		</div>
+				</div>
+				<div class="elementor-element elementor-element-18309cfa elementor-hidden-desktop elementor-hidden-tablet elementor-widget elementor-widget-heading" data-id="18309cfa" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">Modelo
+<span style="position:absolute;bottom: -1.2rem;width:100vw;left:0;text-align:center;text-transform:none;font-size:1rem;">Arquitetura</span></h2>		</div>
+				</div>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-7566e358 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="7566e358" data-element_type="section" data-settings="{&quot;ekit_has_onepagescroll_dot&quot;:&quot;yes&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-314f4702" data-id="314f4702" data-element_type="column">
+			<div class="elementor-column-wrap">
+							<div class="elementor-widget-wrap">
+								</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-72041262 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="72041262" data-element_type="section" data-settings="{&quot;ekit_has_onepagescroll_dot&quot;:&quot;yes&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-1af70a4b" data-id="1af70a4b" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-1590df17 elementor-fixed elementor-invisible elementor-widget elementor-widget-ekit-nav-menu" data-id="1590df17" data-element_type="widget" id="main-menu-header" data-settings="{&quot;_position&quot;:&quot;fixed&quot;,&quot;_animation&quot;:&quot;fadeInDown&quot;}" data-widget_type="ekit-nav-menu.default">
+				<div class="elementor-widget-container">
+			<div class="ekit-wid-con ekit_menu_responsive_tablet" data-hamburger-icon="icon icon-menu-7" data-hamburger-icon-type="icon" data-responsive-breakpoint="1024"><div id="ekit-megamenu-pages-menu" class="elementskit-menu-container elementskit-menu-offcanvas-elements elementskit-navbar-nav-default elementskit_line_arrow ekit-nav-menu-one-page-yes"><ul id="main-menu" class="elementskit-navbar-nav elementskit-menu-po-right submenu-click-on-icon"><li id="menu-item-1367" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-1367 nav-item elementskit-mobile-builder-content" data-vertical-menu=750px><a href="/modelo-arquitetura/" class="ekit-menu-nav-link">Início</a></li>
+<li id="menu-item-1520" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-1470 current_page_item menu-item-1520 nav-item elementskit-mobile-builder-content active" data-vertical-menu=750px><a href="/modelo-arquitetura/about/" class="ekit-menu-nav-link active">about</a></li>
+<li id="menu-item-1368" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1368 nav-item elementskit-mobile-builder-content" data-vertical-menu=750px><a href="/modelo-arquitetura/gallery/" class="ekit-menu-nav-link">Galeria</a></li>
+<li id="menu-item-1375" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1375 nav-item elementskit-mobile-builder-content" data-vertical-menu=750px><a href="/modelo-arquitetura/talk/" class="ekit-menu-nav-link">Contato</a></li>
+</ul>
+				<div class="elementskit-nav-identity-panel">
+					<div class="elementskit-site-title">
+						<a class="elementskit-nav-logo" href="" target="_self" rel="">
+							<img src="" alt="">
+						</a>
+					</div>
+					<button class="elementskit-menu-close elementskit-menu-toggler" type="button">X</button>
+				</div>
+			</div></div>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</header>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-186a21c elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="186a21c" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;ekit_has_onepagescroll_dot&quot;:&quot;yes&quot;}">
+							<div class="elementor-background-overlay"></div>
+							<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-d4448e8" data-id="d4448e8" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-3ebebfe elementor-invisible elementor-widget elementor-widget-heading" data-id="3ebebfe" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;,&quot;_animation_delay&quot;:50}" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h1 class="elementor-heading-title elementor-size-default">Sobre nós</h1>		</div>
+				</div>
+				<div class="elementor-element elementor-element-fa67e82 elementor-invisible elementor-widget elementor-widget-text-editor" data-id="fa67e82" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;,&quot;_animation_delay&quot;:150}" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix"><p>Desde 1987, a Modelo trabalha oferecendo mais que design de interiores. Desde o conceito do projeto trabalhamos com muita atenção aos detalhes, gerenciando-os e implementando-os com muito cuidado para que você tenha mais que uma bela casa.</p><p>Para construção de interiores, planejamento de espaço, materiais, acabamentos, móveis, utensílios e equipamentos.</p></div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-4faa774" data-id="4faa774" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-b655c5d ha-css-transform-yes elementor-invisible elementor-widget elementor-widget-heading" data-id="b655c5d" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;,&quot;_animation_delay&quot;:250}" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default"><h3 data-elementor-setting-key="title" data-pen-placeholder="Digite aqui..." style="font-size: 4rem; font-style: normal; font-weight: 800; color: rgb(255, 255, 255); font-family: Nunito, sans-serif;">652</h3><span style="color: rgba(255, 255, 255, 0.94); font-family: Nunito, sans-serif; font-size: 20.52px; font-style: normal; font-weight: 200;">Projetos</span><span style="color: rgba(255, 255, 255, 0.94); font-family: Nunito, sans-serif; font-size: 20.52px; font-style: normal; font-weight: 200;"></span></h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-416d537 ha-css-transform-yes elementor-invisible elementor-widget elementor-widget-heading" data-id="416d537" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;,&quot;_animation_delay&quot;:410}" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default"><h3 data-elementor-setting-key="title" data-pen-placeholder="Digite aqui..." style="font-size: 4rem; font-style: normal; font-weight: 800; color: rgb(255, 255, 255); font-family: Nunito, sans-serif;">310</h3><span style="color: rgba(255, 255, 255, 0.94); font-family: Nunito, sans-serif; font-size: 20.52px; font-style: normal; font-weight: 200;">Contratos</span><span style="color: rgba(255, 255, 255, 0.94); font-family: Nunito, sans-serif; font-size: 20.52px; font-style: normal; font-weight: 500;"></span></h2>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-6fb8bb3" data-id="6fb8bb3" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-b22eef3 ha-css-transform-yes elementor-invisible elementor-widget elementor-widget-heading" data-id="b22eef3" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;,&quot;_animation_delay&quot;:350}" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default"><h3 data-elementor-setting-key="title" data-pen-placeholder="Digite aqui..." style="font-size:4rem; font-style: normal; font-weight: 800; color: rgb(255, 255, 255); font-family: Nunito, sans-serif;">63</h3><span style="color: rgba(255, 255, 255, 0.94); font-family: Nunito, sans-serif; font-size: 20.52px; font-style: normal; font-weight: 200;">Profissionais</span><span style="color: rgba(255, 255, 255, 0.94); font-family: Nunito, sans-serif; font-size: 20.52px; font-style: normal; font-weight: 500;"></span></h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-bdbc9ac ha-css-transform-yes elementor-invisible elementor-widget elementor-widget-heading" data-id="bdbc9ac" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;,&quot;_animation_delay&quot;:440}" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default"><h3 data-elementor-setting-key="title" data-pen-placeholder="Digite aqui..." style="font-size: 4rem; font-style: normal; font-weight: 800; color: rgb(255, 255, 255); font-family: Nunito, sans-serif;">212</h3><span style="color: rgba(255, 255, 255, 0.94); font-family: Nunito, sans-serif; font-size: 20.52px; font-style: normal; font-weight: 200;">Clientes</span><span style="color: rgba(255, 255, 255, 0.94); font-family: Nunito, sans-serif; font-size: 20.52px; font-style: normal; font-weight: 500;"></span></h2>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-75a4cb71 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="75a4cb71" data-element_type="section" data-settings="{&quot;ekit_has_onepagescroll_dot&quot;:&quot;yes&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-4a06f01c" data-id="4a06f01c" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<section class="elementor-section elementor-inner-section elementor-element elementor-element-28c3100a elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="28c3100a" data-element_type="section" data-settings="{&quot;ekit_has_onepagescroll_dot&quot;:&quot;yes&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-5dc70930" data-id="5dc70930" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-17d39e56 elementor-widget elementor-widget-heading" data-id="17d39e56" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">Hello,</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-4da3b5b elementor-invisible elementor-widget elementor-widget-heading" data-id="4da3b5b" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;,&quot;_animation_delay&quot;:50}" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h1 class="elementor-heading-title elementor-size-default">Nosso time</h1>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-18f30ca elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="18f30ca" data-element_type="section" data-settings="{&quot;ekit_has_onepagescroll_dot&quot;:&quot;yes&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-63df1bf7" data-id="63df1bf7" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-79c84d57 ha-css-transform-yes elementor-invisible elementor-widget elementor-widget-ha-member happy-addon ha-member" data-id="79c84d57" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:200}" data-widget_type="ha-member.default">
+				<div class="elementor-widget-container">
+			
+					<figure class="ha-member-figure">
+				<img width="578" height="578" src="/modelo-arquitetura/wp-content/uploads/2020/12/t-1.jpg" class="elementor-animation-disable-animation attachment-large size-large" alt="" loading="lazy" srcset="https://hellosites.ml/modelo-arquitetura/wp-content/uploads/2020/12/t-1.jpg 578w, https://hellosites.ml/modelo-arquitetura/wp-content/uploads/2020/12/t-1-300x300.jpg 300w, https://hellosites.ml/modelo-arquitetura/wp-content/uploads/2020/12/t-1-150x150.jpg 150w" sizes="(max-width: 578px) 100vw, 578px" style="width:100%;height:100%;max-width:578px;" />			</figure>
+		
+		<div class="ha-member-body">
+			<h2 class="ha-member-name">Richard Hernandez</h2>
+							<div class="ha-member-position">Vice presidente</div>
+			
+			
+			
+			
+					</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-1b3ce2cb" data-id="1b3ce2cb" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-3a4c1412 ha-css-transform-yes elementor-invisible elementor-widget elementor-widget-ha-member happy-addon ha-member" data-id="3a4c1412" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInDown&quot;,&quot;_animation_delay&quot;:400}" data-widget_type="ha-member.default">
+				<div class="elementor-widget-container">
+			
+					<figure class="ha-member-figure">
+				<img width="578" height="578" src="/modelo-arquitetura/wp-content/uploads/2020/12/t-2.jpg" class="elementor-animation-disable-animation attachment-large size-large" alt="" loading="lazy" srcset="https://hellosites.ml/modelo-arquitetura/wp-content/uploads/2020/12/t-2.jpg 578w, https://hellosites.ml/modelo-arquitetura/wp-content/uploads/2020/12/t-2-300x300.jpg 300w, https://hellosites.ml/modelo-arquitetura/wp-content/uploads/2020/12/t-2-150x150.jpg 150w" sizes="(max-width: 578px) 100vw, 578px" style="width:100%;height:100%;max-width:578px;" />			</figure>
+		
+		<div class="ha-member-body">
+			<h2 class="ha-member-name">Sharon Berry</h2>
+							<div class="ha-member-position">Gestor de projeto</div>
+			
+			
+			
+			
+					</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-6f9e4d92" data-id="6f9e4d92" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-205e6485 ha-css-transform-yes elementor-invisible elementor-widget elementor-widget-ha-member happy-addon ha-member" data-id="205e6485" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:600}" data-widget_type="ha-member.default">
+				<div class="elementor-widget-container">
+			
+					<figure class="ha-member-figure">
+				<img width="578" height="578" src="/modelo-arquitetura/wp-content/uploads/2020/12/t-3.jpg" class="elementor-animation-disable-animation attachment-large size-large" alt="" loading="lazy" srcset="https://hellosites.ml/modelo-arquitetura/wp-content/uploads/2020/12/t-3.jpg 578w, https://hellosites.ml/modelo-arquitetura/wp-content/uploads/2020/12/t-3-300x300.jpg 300w, https://hellosites.ml/modelo-arquitetura/wp-content/uploads/2020/12/t-3-150x150.jpg 150w" sizes="(max-width: 578px) 100vw, 578px" style="width:100%;height:100%;max-width:578px;" />			</figure>
+		
+		<div class="ha-member-body">
+			<h2 class="ha-member-name">Thomas Johnson</h2>
+							<div class="ha-member-position">Gestor de RH</div>
+			
+			
+			
+			
+					</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-76072456" data-id="76072456" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-4211fc76 ha-css-transform-yes elementor-invisible elementor-widget elementor-widget-ha-member happy-addon ha-member" data-id="4211fc76" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInDown&quot;,&quot;_animation_delay&quot;:800}" data-widget_type="ha-member.default">
+				<div class="elementor-widget-container">
+			
+					<figure class="ha-member-figure">
+				<img width="578" height="578" src="/modelo-arquitetura/wp-content/uploads/2020/12/t-4.jpg" class="elementor-animation-disable-animation attachment-large size-large" alt="" loading="lazy" srcset="https://hellosites.ml/modelo-arquitetura/wp-content/uploads/2020/12/t-4.jpg 578w, https://hellosites.ml/modelo-arquitetura/wp-content/uploads/2020/12/t-4-300x300.jpg 300w, https://hellosites.ml/modelo-arquitetura/wp-content/uploads/2020/12/t-4-150x150.jpg 150w" sizes="(max-width: 578px) 100vw, 578px" style="width:100%;height:100%;max-width:578px;" />			</figure>
+		
+		<div class="ha-member-body">
+			<h2 class="ha-member-name">Juliana Lane</h2>
+							<div class="ha-member-position">Designer-chefe</div>
+			
+			
+			
+			
+					</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-7d1f7a3 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="7d1f7a3" data-element_type="section" data-settings="{&quot;ekit_has_onepagescroll_dot&quot;:&quot;yes&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-4a09595" data-id="4a09595" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-9acb88a elementor-invisible elementor-widget elementor-widget-ha-horizontal-timeline happy-addon ha-horizontal-timeline" data-id="9acb88a" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;,&quot;slides_to_show_tablet&quot;:&quot;2&quot;,&quot;slides_to_show_mobile&quot;:&quot;1&quot;,&quot;animation_speed&quot;:800,&quot;slides_to_show&quot;:3}" data-widget_type="ha-horizontal-timeline.default">
+				<div class="elementor-widget-container">
+					<div class="ha-horizontal-timeline-wrapper ha-carousel">
+
+							<div class="ha-horizontal-timeline-block elementor-repeater-item-0772296">
+					<div class="ha-horizontal-timeline-icon-box">
+
+						<span class="ha-horizontal-timeline-date">Jan 1, 2019</span>
+
+						<div class="ha-horizontal-timeline-top-inner">
+															<div class="ha-horizontal-timeline-icon">
+									<i aria-hidden="true" class="fas fa-door-open"></i>								</div>
+														<div class="ha-horizontal-timeline-tree"></div>
+						</div>
+					</div>
+
+					<div class="ha-horizontal-timeline-content">
+
+													<div class="ha-horizontal-timeline-arrow"></div>
+						
+						<div class="ha-horizontal-timeline-inner">
+							
+							<h2 class="ha-horizontal-timeline-title">Princípio</h2>
+
+							
+							<p class="ha-horizontal-timeline-description">Zaha Karim, fundadora, tinha um talento sobrenatural e com apenas 19 anos iniciou a Modelo Arquitetura juntamente com seu irmão, Hadir Karim.</p>
+						</div>
+					</div>
+				</div>
+							<div class="ha-horizontal-timeline-block elementor-repeater-item-a3b9950">
+					<div class="ha-horizontal-timeline-icon-box">
+
+						<span class="ha-horizontal-timeline-date">Jun 27, 2019</span>
+
+						<div class="ha-horizontal-timeline-top-inner">
+															<div class="ha-horizontal-timeline-icon">
+									<i aria-hidden="true" class="fas fa-trophy"></i>								</div>
+														<div class="ha-horizontal-timeline-tree"></div>
+						</div>
+					</div>
+
+					<div class="ha-horizontal-timeline-content">
+
+													<div class="ha-horizontal-timeline-arrow"></div>
+						
+						<div class="ha-horizontal-timeline-inner">
+							
+							<h2 class="ha-horizontal-timeline-title">Prêmio Pritzker</h2>
+
+							
+							<p class="ha-horizontal-timeline-description">No mesmo ano Zaha já havia conquistado o &quot;Nobel da arquitetura&quot;. Com isso a Modelo cresceu exponencialmente. </p>
+						</div>
+					</div>
+				</div>
+							<div class="ha-horizontal-timeline-block elementor-repeater-item-7545619">
+					<div class="ha-horizontal-timeline-icon-box">
+
+						<span class="ha-horizontal-timeline-date">Dez 4, 2019</span>
+
+						<div class="ha-horizontal-timeline-top-inner">
+															<div class="ha-horizontal-timeline-icon">
+									<i aria-hidden="true" class="fas fa-calendar-alt"></i>								</div>
+														<div class="ha-horizontal-timeline-tree"></div>
+						</div>
+					</div>
+
+					<div class="ha-horizontal-timeline-content">
+
+													<div class="ha-horizontal-timeline-arrow"></div>
+						
+						<div class="ha-horizontal-timeline-inner">
+							
+							<h2 class="ha-horizontal-timeline-title">20 Profissionais</h2>
+
+							
+							<p class="ha-horizontal-timeline-description">Todos, trabalhando juntos, formaram o time necessário para alcançar, no dia 28 do mesmo mês,  mais de 200 projetos finalizados com sucesso.</p>
+						</div>
+					</div>
+				</div>
+							<div class="ha-horizontal-timeline-block elementor-repeater-item-0fdf6ca">
+					<div class="ha-horizontal-timeline-icon-box">
+
+						<span class="ha-horizontal-timeline-date">Jun 18, 2020</span>
+
+						<div class="ha-horizontal-timeline-top-inner">
+															<div class="ha-horizontal-timeline-icon">
+									<i aria-hidden="true" class="fas fa-pencil-alt"></i>								</div>
+														<div class="ha-horizontal-timeline-tree"></div>
+						</div>
+					</div>
+
+					<div class="ha-horizontal-timeline-content">
+
+													<div class="ha-horizontal-timeline-arrow"></div>
+						
+						<div class="ha-horizontal-timeline-inner">
+							
+							<h2 class="ha-horizontal-timeline-title">500 Projetos</h2>
+
+							
+							<p class="ha-horizontal-timeline-description">Um mês e meio antes, nós atingimos a marca de 52 profissionais. Mesmo com a pandemia a Modelo continuou crescendo exponencialmente, atingindo a marca de 500 projetos. </p>
+						</div>
+					</div>
+				</div>
+							<div class="ha-horizontal-timeline-block elementor-repeater-item-c09aa09">
+					<div class="ha-horizontal-timeline-icon-box">
+
+						<span class="ha-horizontal-timeline-date">Set 1, 2020</span>
+
+						<div class="ha-horizontal-timeline-top-inner">
+															<div class="ha-horizontal-timeline-icon">
+									<i aria-hidden="true" class="fas fa-calendar-alt"></i>								</div>
+														<div class="ha-horizontal-timeline-tree"></div>
+						</div>
+					</div>
+
+					<div class="ha-horizontal-timeline-content">
+
+													<div class="ha-horizontal-timeline-arrow"></div>
+						
+						<div class="ha-horizontal-timeline-inner">
+							
+							<h2 class="ha-horizontal-timeline-title">União</h2>
+
+							
+							<p class="ha-horizontal-timeline-description">Mais de 60 profissionais trabalharam duro para executar mais de 80 projetos em apenas dois meses. A união do nosso time foi essencial.</p>
+						</div>
+					</div>
+				</div>
+							<div class="ha-horizontal-timeline-block elementor-repeater-item-a7c3b9a">
+					<div class="ha-horizontal-timeline-icon-box">
+
+						<span class="ha-horizontal-timeline-date">Hoje</span>
+
+						<div class="ha-horizontal-timeline-top-inner">
+															<div class="ha-horizontal-timeline-icon">
+									<i aria-hidden="true" class="icon icon-valentines-heart"></i>								</div>
+														<div class="ha-horizontal-timeline-tree"></div>
+						</div>
+					</div>
+
+					<div class="ha-horizontal-timeline-content">
+
+													<div class="ha-horizontal-timeline-arrow"></div>
+						
+						<div class="ha-horizontal-timeline-inner">
+							
+							<h2 class="ha-horizontal-timeline-title">Mais</h2>
+
+							
+							<p class="ha-horizontal-timeline-description">Trabalhamos para oferecer mais. Queremos, sempre, criar um ambiente incrível e harmônico que simpatiza com cada um de nossos clientes. </p>
+						</div>
+					</div>
+				</div>
+			
+		</div>
+
+        		</div>
+				</div>
+				<div class="elementor-element elementor-element-b8077b6 elementor-widget elementor-widget-heading" data-id="b8077b6" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">Hello,</h2>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-04a3ec4 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="04a3ec4" data-element_type="section" data-settings="{&quot;ekit_has_onepagescroll_dot&quot;:&quot;yes&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-7308b8e" data-id="7308b8e" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-02aac53 elementor-invisible elementor-widget elementor-widget-heading" data-id="02aac53" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;,&quot;_animation_delay&quot;:50}" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h1 class="elementor-heading-title elementor-size-default">O que fizemos</h1>		</div>
+				</div>
+				<div class="elementor-element elementor-element-5b6ad4c ekit-image-accordion-tablet-vertical ekit-image-accordion-horizontal ekit-image-accordion-click elementor-invisible elementor-widget elementor-widget-elementskit-image-accordion" data-id="5b6ad4c" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;}" data-widget_type="elementskit-image-accordion.default">
+				<div class="elementor-widget-container">
+			<div class="ekit-wid-con" >        <div class="elementskit-image-accordion-wraper ekit-image-accordion">
+                        <input type="radio" name="ekit_ia_5b6ad4c" id="ekit_ia_5b6ad4c_0" class="elementskit-single-image-accordion--input"  hidden>
+            <label for="ekit_ia_5b6ad4c_0" class="elementskit-single-image-accordion ekit-image-accordion-item" style="background-image: url(https://hellosites.ml/modelo-arquitetura/wp-content/uploads/2020/12/interior-8.jpg)">
+                <span class="elementskit-accordion-content">
+                                       <span class="elementskit-icon-wraper ekit-image-accordion-actions">
+                                                   <a href="/modelo-arquitetura/wp-content/uploads/2020/12/interior-8.jpg" class="icon-outline circle" data-elementor-open-lightbox="yes">
+                            <i aria-hidden="true" class="hm hm-arrow-zoom-out"></i>                            </a>
+                                                                  </span>
+                                        <span class="elementskit-accordion-title-wraper">
+                        <span class="elementskit-accordion-title ">
+                        
+                        Projeto Cozy
+                                                </span>
+                    </span>
+                                    </span>
+            </label>
+                        <input type="radio" name="ekit_ia_5b6ad4c" id="ekit_ia_5b6ad4c_1" class="elementskit-single-image-accordion--input"  hidden>
+            <label for="ekit_ia_5b6ad4c_1" class="elementskit-single-image-accordion ekit-image-accordion-item" style="background-image: url(https://hellosites.ml/modelo-arquitetura/wp-content/uploads/2020/12/interior-4.jpg)">
+                <span class="elementskit-accordion-content">
+                                       <span class="elementskit-icon-wraper ekit-image-accordion-actions">
+                                                   <a href="/modelo-arquitetura/wp-content/uploads/2020/12/interior-4.jpg" class="icon-outline circle" data-elementor-open-lightbox="yes">
+                            <i aria-hidden="true" class="hm hm-arrow-zoom-out"></i>                            </a>
+                                                                  </span>
+                                        <span class="elementskit-accordion-title-wraper">
+                        <span class="elementskit-accordion-title ">
+                        
+                        Projeto Áurea Rosa
+                                                </span>
+                    </span>
+                                    </span>
+            </label>
+                        <input type="radio" name="ekit_ia_5b6ad4c" id="ekit_ia_5b6ad4c_2" class="elementskit-single-image-accordion--input"  hidden>
+            <label for="ekit_ia_5b6ad4c_2" class="elementskit-single-image-accordion ekit-image-accordion-item" style="background-image: url(https://hellosites.ml/modelo-arquitetura/wp-content/uploads/2020/12/interior-6-scaled.jpg)">
+                <span class="elementskit-accordion-content">
+                                       <span class="elementskit-icon-wraper ekit-image-accordion-actions">
+                                                   <a href="/modelo-arquitetura/wp-content/uploads/2020/12/interior-6-scaled.jpg" class="icon-outline circle" data-elementor-open-lightbox="yes">
+                            <i aria-hidden="true" class="hm hm-arrow-zoom-out"></i>                            </a>
+                                                                  </span>
+                                        <span class="elementskit-accordion-title-wraper">
+                        <span class="elementskit-accordion-title ">
+                        
+                        Projeto Ollo
+                                                </span>
+                    </span>
+                                    </span>
+            </label>
+                    </div>
+    </div>		</div>
+				</div>
+				<div class="elementor-element elementor-element-790306a elementor-widget elementor-widget-elementskit-button" data-id="790306a" data-element_type="widget" data-widget_type="elementskit-button.default">
+				<div class="elementor-widget-container">
+			<div class="ekit-wid-con" >		<div class="ekit-btn-wraper">
+							<a href="/modelo-arquitetura/gallery/" class="elementskit-btn " >
+					Ver mais				</a>
+					</div>
+        </div>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-7bacfc0d elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="7bacfc0d" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;ekit_has_onepagescroll_dot&quot;:&quot;yes&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-77d0db13" data-id="77d0db13" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-3dc4ec3c elementor-widget elementor-widget-text-editor" data-id="3dc4ec3c" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix"><p style="text-align: center;"><span style="color: #ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif; font-size: 13.68px;">Copyright © 2020 Hugo Rodrigues | Criado com </span><a class="customize-unpreviewable" style="box-sizing: inherit; -webkit-font-smoothing: antialiased; text-size-adjust: none; text-rendering: geometricprecision; transform: rotate(-1e-10deg); border: 0px; font-size: 13.68px; margin: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: #eaeaea; transition: all 0.2s linear 0s; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif; cursor: not-allowed !important;" href="https://wpastra.com/">Elementor</a></p></div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-9006658 animated-fast elementor-widget__width-auto elementor-fixed elementor-view-default elementor-invisible elementor-widget elementor-widget-icon" data-id="9006658" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:10000,&quot;_position&quot;:&quot;fixed&quot;}" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-wrapper">
+			<a class="elementor-icon elementor-animation-shrink" href="#home">
+			<i aria-hidden="true" class="far fa-arrow-alt-circle-up"></i>			</a>
+		</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+						</div>
+						</div>
+					</div>
+		<div class="eael-reading-progress-wrap eael-reading-progress-wrap-local"><div class="eael-reading-progress eael-reading-progress-local eael-reading-progress-bottom">
+                        <div class="eael-reading-progress-fill"></div>
+                    </div></div><script>document.body.classList.remove("no-js");</script>	<script>
+	if ( -1 !== navigator.userAgent.indexOf( 'MSIE' ) || -1 !== navigator.appVersion.indexOf( 'Trident/' ) ) {
+		document.body.classList.add( 'is-IE' );
+	}
+	</script>
+	<link rel='stylesheet' id='elementor-icons-fa-brands-css'  href="/modelo-arquitetura/wp-content/plugins/elementor/assets/lib/font-awesome/css/brands.min.css?ver=5.12.0" media='all' />
+<link rel='stylesheet' id='eael-reading-progress-css'  href="/modelo-arquitetura/wp-content/plugins/essential-addons-for-elementor-lite/assets/front-end/css/view/reading-progress.min.css?ver=4.3.8" media='all' />
+<script src="/modelo-arquitetura/wp-content/themes/twentytwentyone/assets/js/polyfills.js?ver=1.0" id='twenty-twenty-one-ie11-polyfills-js'></script>
+<script src="/modelo-arquitetura/wp-content/themes/twentytwentyone/assets/js/responsive-embeds.js?ver=1.0" id='twenty-twenty-one-responsive-embeds-script-js'></script>
+<script src="/modelo-arquitetura/wp-content/plugins/elementskit-lite/libs/framework/assets/js/frontend-script.js?ver=2.0.13" id='elementskit-framework-js-frontend-js'></script>
+<script id='elementskit-framework-js-frontend-js-after'>
+
+		var elementskit = {
+            resturl: 'https://hellosites.ml/modelo-arquitetura/wp-json/elementskit/v1/',
+        }
+
+		
+</script>
+<script src="/modelo-arquitetura/wp-content/plugins/elementskit-lite/widgets/init/assets/js/widget-scripts.js?ver=2.0.13" id='ekit-widget-scripts-js'></script>
+<script src="/modelo-arquitetura/wp-content/plugins/elementor/assets/lib/slick/slick.min.js?ver=1.8.1" id='jquery-slick-js'></script>
+<script id='happy-elementor-addons-js-extra'>
+var HappyLocalize = {"ajax_url":"https:\/\/hellosites.ml\/modelo-arquitetura\/wp-admin\/admin-ajax.php","nonce":"321ad2f4e6"};
+</script>
+<script src="/modelo-arquitetura/wp-content/plugins/happy-elementor-addons/assets/js/happy-addons.min.js?ver=2.16.1" id='happy-elementor-addons-js'></script>
+<script src="/modelo-arquitetura/wp-includes/js/wp-embed.min.js?ver=5.6" id='wp-embed-js'></script>
+<script src="/modelo-arquitetura/wp-content/plugins/essential-addons-for-elementor-lite/assets/front-end/js/view/reading-progress.min.js?ver=4.3.8" id='eael-reading-progress-js'></script>
+<script src="/modelo-arquitetura/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.0.15" id='elementor-frontend-modules-js'></script>
+<script src="/modelo-arquitetura/wp-includes/js/jquery/ui/core.min.js?ver=1.12.1" id='jquery-ui-core-js'></script>
+<script src="/modelo-arquitetura/wp-content/plugins/elementor/assets/lib/dialog/dialog.min.js?ver=4.8.1" id='elementor-dialog-js'></script>
+<script src="/modelo-arquitetura/wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js?ver=4.0.2" id='elementor-waypoints-js'></script>
+<script src="/modelo-arquitetura/wp-content/plugins/elementor/assets/lib/swiper/swiper.min.js?ver=5.3.6" id='swiper-js'></script>
+<script src="/modelo-arquitetura/wp-content/plugins/elementor/assets/lib/share-link/share-link.min.js?ver=3.0.15" id='share-link-js'></script>
+<script id='elementor-frontend-js-before'>
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false},"i18n":{"shareOnFacebook":"Compartilhar no Facebook","shareOnTwitter":"Compartilhar no Twitter","pinIt":"Fixar","download":"Baixar","downloadImage":"Baixar imagem","fullscreen":"Tela cheia","zoom":"Zoom","share":"Compartilhar","playVideo":"Reproduzir v\u00eddeo","previous":"Anterior","next":"Pr\u00f3ximo","close":"Fechar"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"version":"3.0.15","is_static":false,"legacyMode":{"elementWrappers":true},"urls":{"assets":"https:\/\/hellosites.ml\/modelo-arquitetura\/wp-content\/plugins\/elementor\/assets\/"},"settings":{"page":[],"editorPreferences":[]},"kit":{"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description"},"post":{"id":1470,"title":"about%20%E2%80%93%20Modelo%20Arquitetura","excerpt":"","featuredImage":false}};
+</script>
+<script src="/modelo-arquitetura/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.0.15" id='elementor-frontend-js'></script>
+<script src="/modelo-arquitetura/wp-content/plugins/elementskit-lite/widgets/init/assets/js/elementor.js?ver=2.0.13" id='elementskit-elementor-js'></script>
+<script src="/modelo-arquitetura/wp-content/plugins/elementskit-lite/modules/controls/assets/js/widgetarea-editor.js?ver=2.0.13" id='elementskit-js-widgetarea-control-editor-js'></script>
+	<script>
+	/(trident|msie)/i.test(navigator.userAgent)&&document.getElementById&&window.addEventListener&&window.addEventListener("hashchange",(function(){var t,e=location.hash.substring(1);/^[A-z0-9_-]+$/.test(e)&&(t=document.getElementById(e))&&(/^(?:a|select|input|button|textarea)$/i.test(t.tagName)||(t.tabIndex=-1),t.focus())}),!1);
+	</script>
+		</body>
+</html>

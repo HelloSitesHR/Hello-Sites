@@ -1,0 +1,1677 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta http-equiv="Last-Modified" content="Tue, 22 Dec 2020 22:01:36 GMT">
+	<meta charset="UTF-8">
+		<title>Modelo Arquitetura &#8211; Modelo Arquitetura de Hello Sites</title>
+<link rel='dns-prefetch' href="/modelo-arquitetura//s.w.org" />
+		<script>
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/hellosites.ml\/modelo-arquitetura\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.6"}};
+			!function(e,a,t){var r,n,o,i,p=a.createElement("canvas"),s=p.getContext&&p.getContext("2d");function c(e,t){var a=String.fromCharCode;s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,e),0,0);var r=p.toDataURL();return s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,t),0,0),r===p.toDataURL()}function l(e){if(!s||!s.fillText)return!1;switch(s.textBaseline="top",s.font="600 32px Arial",e){case"flag":return!c([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])&&(!c([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!c([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]));case"emoji":return!c([55357,56424,8205,55356,57212],[55357,56424,8203,55356,57212])}return!1}function d(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(i=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},o=0;o<i.length;o++)t.supports[i[o]]=l(i[o]),t.supports.everything=t.supports.everything&&t.supports[i[o]],"flag"!==i[o]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[i[o]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(r=t.source||{}).concatemoji?d(r.concatemoji):r.wpemoji&&r.twemoji&&(d(r.twemoji),d(r.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style>
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-block-library-css'  href="/modelo-arquitetura/wp-includes/css/dist/block-library/style.min.css?ver=5.6" media='all' />
+<link rel='stylesheet' id='wp-block-library-theme-css'  href="/modelo-arquitetura/wp-includes/css/dist/block-library/theme.min.css?ver=5.6" media='all' />
+<link rel='stylesheet' id='twenty-twenty-one-style-css'  href="/modelo-arquitetura/wp-content/themes/twentytwentyone/style.css?ver=1.0" media='all' />
+<link rel='stylesheet' id='twenty-twenty-one-print-style-css'  href="/modelo-arquitetura/wp-content/themes/twentytwentyone/assets/css/print.css?ver=1.0" media='print' />
+<link rel='stylesheet' id='elementor-icons-ekiticons-css'  href="/modelo-arquitetura/wp-content/plugins/elementskit-lite/modules/controls/assets/css/ekiticons.css?ver=5.9.0" media='all' />
+<link rel='stylesheet' id='elementor-icons-css'  href="/modelo-arquitetura/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css?ver=5.9.1" media='all' />
+<link rel='stylesheet' id='elementor-animations-css'  href="/modelo-arquitetura/wp-content/plugins/elementor/assets/lib/animations/animations.min.css?ver=3.0.15" media='all' />
+<link rel='stylesheet' id='elementor-frontend-legacy-css'  href="/modelo-arquitetura/wp-content/plugins/elementor/assets/css/frontend-legacy.min.css?ver=3.0.15" media='all' />
+<link rel='stylesheet' id='elementor-frontend-css'  href="/modelo-arquitetura/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=3.0.15" media='all' />
+<style id='elementor-frontend-inline-css'>
+.ha-css-transform-yes{-webkit-transition-duration:var(--ha-tfx-transition-duration,.2s);transition-duration:var(--ha-tfx-transition-duration,.2s);-webkit-transition-property:-webkit-transform;transition-property:transform;transition-property:transform,-webkit-transform;-webkit-transform:translate(var(--ha-tfx-translate-x,0),var(--ha-tfx-translate-y,0)) scale(var(--ha-tfx-scale-x,1),var(--ha-tfx-scale-y,1)) skew(var(--ha-tfx-skew-x,0),var(--ha-tfx-skew-y,0)) rotateX(var(--ha-tfx-rotate-x,0)) rotateY(var(--ha-tfx-rotate-y,0)) rotateZ(var(--ha-tfx-rotate-z,0));transform:translate(var(--ha-tfx-translate-x,0),var(--ha-tfx-translate-y,0)) scale(var(--ha-tfx-scale-x,1),var(--ha-tfx-scale-y,1)) skew(var(--ha-tfx-skew-x,0),var(--ha-tfx-skew-y,0)) rotateX(var(--ha-tfx-rotate-x,0)) rotateY(var(--ha-tfx-rotate-y,0)) rotateZ(var(--ha-tfx-rotate-z,0))}.ha-css-transform-yes:hover{-webkit-transform:translate(var(--ha-tfx-translate-x-hover,var(--ha-tfx-translate-x,0)),var(--ha-tfx-translate-y-hover,var(--ha-tfx-translate-y,0))) scale(var(--ha-tfx-scale-x-hover,var(--ha-tfx-scale-x,1)),var(--ha-tfx-scale-y-hover,var(--ha-tfx-scale-y,1))) skew(var(--ha-tfx-skew-x-hover,var(--ha-tfx-skew-x,0)),var(--ha-tfx-skew-y-hover,var(--ha-tfx-skew-y,0))) rotateX(var(--ha-tfx-rotate-x-hover,var(--ha-tfx-rotate-x,0))) rotateY(var(--ha-tfx-rotate-y-hover,var(--ha-tfx-rotate-y,0))) rotateZ(var(--ha-tfx-rotate-z-hover,var(--ha-tfx-rotate-z,0)));transform:translate(var(--ha-tfx-translate-x-hover,var(--ha-tfx-translate-x,0)),var(--ha-tfx-translate-y-hover,var(--ha-tfx-translate-y,0))) scale(var(--ha-tfx-scale-x-hover,var(--ha-tfx-scale-x,1)),var(--ha-tfx-scale-y-hover,var(--ha-tfx-scale-y,1))) skew(var(--ha-tfx-skew-x-hover,var(--ha-tfx-skew-x,0)),var(--ha-tfx-skew-y-hover,var(--ha-tfx-skew-y,0))) rotateX(var(--ha-tfx-rotate-x-hover,var(--ha-tfx-rotate-x,0))) rotateY(var(--ha-tfx-rotate-y-hover,var(--ha-tfx-rotate-y,0))) rotateZ(var(--ha-tfx-rotate-z-hover,var(--ha-tfx-rotate-z,0)))}.happy-addon>.elementor-widget-container{word-wrap:break-word;overflow-wrap:break-word;box-sizing:border-box}.happy-addon>.elementor-widget-container *{box-sizing:border-box}.happy-addon p:empty{display:none}.happy-addon .elementor-inline-editing{min-height:auto!important}.happy-addon-pro img{max-width:100%;height:auto;-o-object-fit:cover;object-fit:cover}.ha-screen-reader-text{position:absolute;overflow:hidden;clip:rect(1px,1px,1px,1px);margin:-1px;padding:0;width:1px;height:1px;border:0;word-wrap:normal!important;-webkit-clip-path:inset(50%);clip-path:inset(50%)}.ha-has-background-overlay>.elementor-widget-container{position:relative;z-index:1}.ha-has-background-overlay>.elementor-widget-container:before{position:absolute;top:0;left:0;z-index:-1;width:100%;height:100%;content:""}.ha-popup--is-enabled .ha-js-popup,.ha-popup--is-enabled .ha-js-popup img{cursor:-webkit-zoom-in!important;cursor:zoom-in!important}.mfp-wrap .mfp-arrow,.mfp-wrap .mfp-close{background-color:transparent}.mfp-wrap .mfp-arrow:focus,.mfp-wrap .mfp-close:focus{outline-width:thin}
+</style>
+<link rel='stylesheet' id='elementor-post-807-css'  href="/modelo-arquitetura/wp-content/uploads/elementor/css/post-807.css?ver=1608674493" media='all' />
+<link rel='stylesheet' id='font-awesome-5-all-css'  href="/modelo-arquitetura/wp-content/plugins/elementor/assets/lib/font-awesome/css/all.min.css?ver=4.3.8" media='all' />
+<link rel='stylesheet' id='font-awesome-4-shim-css'  href="/modelo-arquitetura/wp-content/plugins/elementor/assets/lib/font-awesome/css/v4-shims.min.css?ver=4.3.8" media='all' />
+<link rel='stylesheet' id='she-header-style-css'  href="/modelo-arquitetura/wp-content/plugins/sticky-header-effects-for-elementor/assets/css/she-header-style.css?ver=1.4.3" media='all' />
+<link rel='stylesheet' id='elementskit-css-widgetarea-control-editor-css'  href="/modelo-arquitetura/wp-content/plugins/elementskit-lite/modules/controls/assets/css/widgetarea-editor.css?ver=2.0.13" media='all' />
+<link rel='stylesheet' id='elementor-global-css'  href="/modelo-arquitetura/wp-content/uploads/elementor/css/global.css?ver=1608674495" media='all' />
+<link rel='stylesheet' id='elementor-post-817-css'  href="/modelo-arquitetura/wp-content/uploads/elementor/css/post-817.css?ver=1608674495" media='all' />
+<link rel='stylesheet' id='ekit-widget-styles-css'  href="/modelo-arquitetura/wp-content/plugins/elementskit-lite/widgets/init/assets/css/widget-styles.css?ver=2.0.13" media='all' />
+<link rel='stylesheet' id='ekit-responsive-css'  href="/modelo-arquitetura/wp-content/plugins/elementskit-lite/widgets/init/assets/css/responsive.css?ver=2.0.13" media='all' />
+<link rel='stylesheet' id='happy-icons-css'  href="/modelo-arquitetura/wp-content/plugins/happy-elementor-addons/assets/fonts/style.min.css?ver=2.16.1" media='all' />
+<link rel='stylesheet' id='font-awesome-css'  href="/modelo-arquitetura/wp-content/plugins/elementor/assets/lib/font-awesome/css/font-awesome.min.css?ver=4.7.0" media='all' />
+<link rel='stylesheet' id='google-fonts-1-css'  href='https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto+Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CNova+Oval%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CNunito%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;ver=5.6' media='all' />
+<link rel='stylesheet' id='elementor-icons-shared-1-css'  href="/modelo-arquitetura/wp-content/plugins/happy-elementor-addons/assets/fonts/style.min.css?ver=2.16.1" media='all' />
+<link rel='stylesheet' id='elementor-icons-happy-icons-css'  href="/modelo-arquitetura/wp-content/plugins/happy-elementor-addons/assets/fonts/style.min.css?ver=2.16.1" media='all' />
+<link rel='stylesheet' id='elementor-icons-shared-0-css'  href="/modelo-arquitetura/wp-content/plugins/elementor/assets/lib/font-awesome/css/fontawesome.min.css?ver=5.12.0" media='all' />
+<link rel='stylesheet' id='elementor-icons-fa-brands-css'  href="/modelo-arquitetura/wp-content/plugins/elementor/assets/lib/font-awesome/css/brands.min.css?ver=5.12.0" media='all' />
+<script src="/modelo-arquitetura/wp-includes/js/jquery/jquery.min.js?ver=3.5.1" id='jquery-core-js'></script>
+<script src="/modelo-arquitetura/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2" id='jquery-migrate-js'></script>
+<script src="/modelo-arquitetura/wp-content/plugins/sticky-header-effects-for-elementor/assets/js/she-header.js?ver=1.4.3" id='she-header-js'></script>
+<script src="/modelo-arquitetura/wp-content/plugins/elementor/assets/lib/font-awesome/js/v4-shims.min.js?ver=4.3.8" id='font-awesome-4-shim-js'></script>
+<link rel="https://api.w.org/" href="/modelo-arquitetura/wp-json/" /><link rel="alternate" type="application/json" href="/modelo-arquitetura/wp-json/wp/v2/pages/817" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="/modelo-arquitetura/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="/modelo-arquitetura/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.6 with StaticPress ver.0.4.5" />
+<link rel="canonical" href="https://hellosites.ml/modelo-arquitetura/" />
+<link rel="alternate" type="application/json+oembed" href="/modelo-arquitetura/wp-json/oembed/1.0/embed?url=http%3A%2F%2Flocalhost%2F" />
+<style>.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style><link rel="icon" href="/modelo-arquitetura/wp-content/uploads/2020/12/HelloSitesLogo2-150x150.png" sizes="32x32" />
+<link rel="icon" href="/modelo-arquitetura/wp-content/uploads/2020/12/HelloSitesLogo2-300x300.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="/modelo-arquitetura/wp-content/uploads/2020/12/HelloSitesLogo2-300x300.png" />
+<meta name="msapplication-TileImage" content="https://hellosites.ml/modelo-arquitetura/wp-content/uploads/2020/12/HelloSitesLogo2-300x300.png" />
+		<style id="wp-custom-css">
+			.mfp-close{
+	width: 0px !important;
+	height:0px !important;
+	position: absolute;
+	top:-1rem !important;
+	font-size: 2rem !important;
+	cursor:  !important;
+}
+		</style>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" /></head>
+<body class="home page-template page-template-elementor_canvas page page-id-817 wp-embed-responsive is-light-theme no-js singular elementor-default elementor-template-canvas elementor-kit-807 elementor-page elementor-page-817">
+			<div data-elementor-type="wp-page" data-elementor-id="817" class="elementor elementor-817" data-elementor-settings="[]">
+						<div class="elementor-inner">
+							<div class="elementor-section-wrap">
+							<header class="elementor-section elementor-top-section elementor-element elementor-element-2413afa1 elementor-section-height-full elementor-section-items-top elementor-section-full_width elementor-section-height-default" data-id="2413afa1" data-element_type="section" id="home" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;shape_divider_bottom&quot;:&quot;opacity-tilt&quot;,&quot;ekit_has_onepagescroll_dot&quot;:&quot;yes&quot;}">
+							<div class="elementor-background-overlay"></div>
+						<div class="elementor-shape elementor-shape-bottom" data-negative="false">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2600 131.1" preserveAspectRatio="none">
+	<path class="elementor-shape-fill" d="M0 0L2600 0 2600 69.1 0 0z"/>
+	<path class="elementor-shape-fill" style="opacity:0.5" d="M0 0L2600 0 2600 69.1 0 69.1z"/>
+	<path class="elementor-shape-fill" style="opacity:0.25" d="M2600 0L0 0 0 130.1 2600 69.1z"/>
+</svg>		</div>
+					<div class="elementor-container elementor-column-gap-no">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-7cf4a29" data-id="7cf4a29" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-9592188 elementor-widget__width-auto elementor-hidden-phone elementor-widget elementor-widget-heading" data-id="9592188" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h1 class="elementor-heading-title elementor-size-default">Modelo
+<span style="text-transform:none;position:absolute;font-size:3vw;right:1vw;bottom:-3vw;">Arquitetura</span></h1>		</div>
+				</div>
+				<div class="elementor-element elementor-element-e61533e elementor-hidden-desktop elementor-hidden-tablet elementor-widget elementor-widget-heading" data-id="e61533e" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">Modelo
+<span style="position:absolute;bottom: -1.2rem;width:100vw;left:0;text-align:center;text-transform:none;font-size:1rem;">Arquitetura</span></h2>		</div>
+				</div>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-22b139e elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="22b139e" data-element_type="section" data-settings="{&quot;ekit_has_onepagescroll_dot&quot;:&quot;yes&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-7388e9c" data-id="7388e9c" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-90b2f22 elementor-widget-mobile__width-inherit elementor-hidden-desktop elementor-hidden-tablet elementor-widget elementor-widget-spacer" data-id="90b2f22" data-element_type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-863fc6b elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="863fc6b" data-element_type="section" data-settings="{&quot;ekit_has_onepagescroll_dot&quot;:&quot;yes&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-f5dc653" data-id="f5dc653" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-ad4e653 elementor-fixed elementor-invisible elementor-widget elementor-widget-ekit-nav-menu" data-id="ad4e653" data-element_type="widget" id="main-menu-header" data-settings="{&quot;_position&quot;:&quot;fixed&quot;,&quot;_animation&quot;:&quot;fadeInDown&quot;}" data-widget_type="ekit-nav-menu.default">
+				<div class="elementor-widget-container">
+			<div class="ekit-wid-con ekit_menu_responsive_tablet" data-hamburger-icon="icon icon-menu-7" data-hamburger-icon-type="icon" data-responsive-breakpoint="1024"><div id="ekit-megamenu-landing-menu" class="elementskit-menu-container elementskit-menu-offcanvas-elements elementskit-navbar-nav-default elementskit_line_arrow ekit-nav-menu-one-page-yes"><ul id="main-menu" class="elementskit-navbar-nav elementskit-menu-po-right submenu-click-on-icon"><li id="menu-item-731" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-731 nav-item elementskit-mobile-builder-content" data-vertical-menu=750px><a href="#home" class="ekit-menu-nav-link">Início</a></li>
+<li id="menu-item-732" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-732 nav-item elementskit-mobile-builder-content" data-vertical-menu=750px><a href="#about" class="ekit-menu-nav-link">Sobre</a></li>
+<li id="menu-item-733" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-733 nav-item elementskit-mobile-builder-content" data-vertical-menu=750px><a href="#gallery" class="ekit-menu-nav-link">Galeria</a></li>
+<li id="menu-item-734" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-734 nav-item elementskit-mobile-builder-content" data-vertical-menu=750px><a href="#talk" class="ekit-menu-nav-link">Contato</a></li>
+</ul>
+				<div class="elementskit-nav-identity-panel">
+					<div class="elementskit-site-title">
+						<a class="elementskit-nav-logo" href="" target="_self" rel="">
+							<img src="" alt="">
+						</a>
+					</div>
+					<button class="elementskit-menu-close elementskit-menu-toggler" type="button">X</button>
+				</div>
+			</div></div>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</header>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-1a8677c5 elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="1a8677c5" data-element_type="section" id="about" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;ekit_has_onepagescroll_dot&quot;:&quot;yes&quot;}">
+							<div class="elementor-background-overlay"></div>
+							<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-6f78cdb5" data-id="6f78cdb5" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-287436b8 elementor-invisible elementor-widget elementor-widget-heading" data-id="287436b8" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;,&quot;_animation_delay&quot;:50}" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h1 class="elementor-heading-title elementor-size-default">Sobre</h1>		</div>
+				</div>
+				<div class="elementor-element elementor-element-2c239451 elementor-invisible elementor-widget elementor-widget-text-editor" data-id="2c239451" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;,&quot;_animation_delay&quot;:150}" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix"><p>Desde 1987, a Modelo trabalha oferecendo mais que design de interiores. Desde o conceito do projeto trabalhamos com muita atenção aos detalhes, gerenciando-os e implementando-os com muito cuidado para que você tenha mais que uma bela casa.</p><p>Para construção de interiores, planejamento de espaço, materiais, acabamentos, móveis, utensílios e equipamentos.</p></div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-47bfd1d elementor-widget elementor-widget-elementskit-button" data-id="47bfd1d" data-element_type="widget" data-widget_type="elementskit-button.default">
+				<div class="elementor-widget-container">
+			<div class="ekit-wid-con" >		<div class="ekit-btn-wraper">
+							<a href="/modelo-arquitetura/about/" class="elementskit-btn " >
+					Ver mais				</a>
+					</div>
+        </div>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-562dfa4a" data-id="562dfa4a" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-78733168 ha-css-transform-yes elementor-invisible elementor-widget elementor-widget-heading" data-id="78733168" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;,&quot;_animation_delay&quot;:250}" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default"><h3 data-elementor-setting-key="title" data-pen-placeholder="Digite aqui..." style="font-size: 4rem; font-style: normal; font-weight: 800; color: rgb(255, 255, 255); font-family: Nunito, sans-serif;">652</h3><span style="color: rgba(255, 255, 255, 0.94); font-family: Nunito, sans-serif; font-size: 20.52px; font-style: normal; font-weight: 200;">Projetos</span><span style="color: rgba(255, 255, 255, 0.94); font-family: Nunito, sans-serif; font-size: 20.52px; font-style: normal; font-weight: 200;"></span></h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-7996a0f8 ha-css-transform-yes elementor-invisible elementor-widget elementor-widget-heading" data-id="7996a0f8" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;,&quot;_animation_delay&quot;:410}" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default"><h3 data-elementor-setting-key="title" data-pen-placeholder="Digite aqui..." style="font-size: 4rem; font-style: normal; font-weight: 800; color: rgb(255, 255, 255); font-family: Nunito, sans-serif;">310</h3><span style="color: rgba(255, 255, 255, 0.94); font-family: Nunito, sans-serif; font-size: 20.52px; font-style: normal; font-weight: 200;">Contratos</span><span style="color: rgba(255, 255, 255, 0.94); font-family: Nunito, sans-serif; font-size: 20.52px; font-style: normal; font-weight: 500;"></span></h2>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-283d9dd7" data-id="283d9dd7" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-1230960 ha-css-transform-yes elementor-invisible elementor-widget elementor-widget-heading" data-id="1230960" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;,&quot;_animation_delay&quot;:350}" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default"><h3 data-elementor-setting-key="title" data-pen-placeholder="Digite aqui..." style="font-size:4rem; font-style: normal; font-weight: 800; color: rgb(255, 255, 255); font-family: Nunito, sans-serif;">63</h3><span style="color: rgba(255, 255, 255, 0.94); font-family: Nunito, sans-serif; font-size: 20.52px; font-style: normal; font-weight: 200;">Profissionais</span><span style="color: rgba(255, 255, 255, 0.94); font-family: Nunito, sans-serif; font-size: 20.52px; font-style: normal; font-weight: 500;"></span></h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-7609ceb6 ha-css-transform-yes elementor-invisible elementor-widget elementor-widget-heading" data-id="7609ceb6" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;,&quot;_animation_delay&quot;:440}" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default"><h3 data-elementor-setting-key="title" data-pen-placeholder="Digite aqui..." style="font-size: 4rem; font-style: normal; font-weight: 800; color: rgb(255, 255, 255); font-family: Nunito, sans-serif;">212</h3><span style="color: rgba(255, 255, 255, 0.94); font-family: Nunito, sans-serif; font-size: 20.52px; font-style: normal; font-weight: 200;">Clientes</span><span style="color: rgba(255, 255, 255, 0.94); font-family: Nunito, sans-serif; font-size: 20.52px; font-style: normal; font-weight: 500;"></span></h2>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-5cc81e54 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="5cc81e54" data-element_type="section" id="gallery" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;ekit_has_onepagescroll_dot&quot;:&quot;yes&quot;}">
+							<div class="elementor-background-overlay"></div>
+							<div class="elementor-container elementor-column-gap-wider">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-5437be92" data-id="5437be92" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-3184c40 elementor-invisible elementor-widget elementor-widget-heading" data-id="3184c40" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;,&quot;_animation_delay&quot;:50}" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h1 class="elementor-heading-title elementor-size-default">Galeria</h1>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-6be98ead" data-id="6be98ead" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-8c32408 ekit-image-accordion-tablet-vertical ekit-image-accordion-hover ekit-image-accordion-horizontal elementor-invisible elementor-widget elementor-widget-elementskit-image-accordion" data-id="8c32408" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;}" data-widget_type="elementskit-image-accordion.default">
+				<div class="elementor-widget-container">
+			<div class="ekit-wid-con" >        <div class="elementskit-image-accordion-wraper ekit-image-accordion">
+                        <input type="radio" name="ekit_ia_8c32408" id="ekit_ia_8c32408_0" class="elementskit-single-image-accordion--input"  hidden>
+            <label for="ekit_ia_8c32408_0" class="elementskit-single-image-accordion ekit-image-accordion-item" style="background-image: url(https://hellosites.ml/modelo-arquitetura/wp-content/uploads/2020/12/interior-1.jpg)">
+                <span class="elementskit-accordion-content">
+                                       <span class="elementskit-icon-wraper ekit-image-accordion-actions">
+                                                   <a href="/modelo-arquitetura/wp-content/uploads/2020/12/interior-1.jpg" class="icon-outline circle" data-elementor-open-lightbox="yes">
+                            <i aria-hidden="true" class="hm hm-arrow-zoom-out"></i>                            </a>
+                                                                  </span>
+                                        <span class="elementskit-accordion-title-wraper">
+                        <span class="elementskit-accordion-title ">
+                        
+                        
+                                                </span>
+                    </span>
+                                    </span>
+            </label>
+                        <input type="radio" name="ekit_ia_8c32408" id="ekit_ia_8c32408_1" class="elementskit-single-image-accordion--input"  hidden>
+            <label for="ekit_ia_8c32408_1" class="elementskit-single-image-accordion ekit-image-accordion-item" style="background-image: url(https://hellosites.ml/modelo-arquitetura/wp-content/uploads/2020/12/interior-8.jpg)">
+                <span class="elementskit-accordion-content">
+                                       <span class="elementskit-icon-wraper ekit-image-accordion-actions">
+                                                   <a href="/modelo-arquitetura/wp-content/uploads/2020/12/interior-8.jpg" class="icon-outline circle" data-elementor-open-lightbox="yes">
+                            <i aria-hidden="true" class="hm hm-arrow-zoom-out"></i>                            </a>
+                                                                  </span>
+                                        <span class="elementskit-accordion-title-wraper">
+                        <span class="elementskit-accordion-title ">
+                        
+                        
+                                                </span>
+                    </span>
+                                    </span>
+            </label>
+                        <input type="radio" name="ekit_ia_8c32408" id="ekit_ia_8c32408_2" class="elementskit-single-image-accordion--input"  hidden>
+            <label for="ekit_ia_8c32408_2" class="elementskit-single-image-accordion ekit-image-accordion-item" style="background-image: url(https://hellosites.ml/modelo-arquitetura/wp-content/uploads/2020/12/interior-9-scaled.jpg)">
+                <span class="elementskit-accordion-content">
+                                       <span class="elementskit-icon-wraper ekit-image-accordion-actions">
+                                                   <a href="/modelo-arquitetura/wp-content/uploads/2020/12/interior-9-scaled.jpg" class="icon-outline circle" data-elementor-open-lightbox="yes">
+                            <i aria-hidden="true" class="hm hm-arrow-zoom-out"></i>                            </a>
+                                                                  </span>
+                                        <span class="elementskit-accordion-title-wraper">
+                        <span class="elementskit-accordion-title ">
+                        
+                        
+                                                </span>
+                    </span>
+                                    </span>
+            </label>
+                        <input type="radio" name="ekit_ia_8c32408" id="ekit_ia_8c32408_3" class="elementskit-single-image-accordion--input"  hidden>
+            <label for="ekit_ia_8c32408_3" class="elementskit-single-image-accordion ekit-image-accordion-item" style="background-image: url(https://hellosites.ml/modelo-arquitetura/wp-content/uploads/2020/12/interior-2.jpg)">
+                <span class="elementskit-accordion-content">
+                                       <span class="elementskit-icon-wraper ekit-image-accordion-actions">
+                                                   <a href="/modelo-arquitetura/wp-content/uploads/2020/12/interior-2.jpg" class="icon-outline circle" data-elementor-open-lightbox="yes">
+                            <i aria-hidden="true" class="hm hm-arrow-zoom-out"></i>                            </a>
+                                                                  </span>
+                                        <span class="elementskit-accordion-title-wraper">
+                        <span class="elementskit-accordion-title ">
+                        
+                        
+                                                </span>
+                    </span>
+                                    </span>
+            </label>
+                    </div>
+    </div>		</div>
+				</div>
+				<div class="elementor-element elementor-element-bc5fc5b elementor-widget elementor-widget-elementskit-button" data-id="bc5fc5b" data-element_type="widget" data-widget_type="elementskit-button.default">
+				<div class="elementor-widget-container">
+			<div class="ekit-wid-con" >		<div class="ekit-btn-wraper">
+							<a href="/modelo-arquitetura/gallery/" class="elementskit-btn " >
+					Ver mais				</a>
+					</div>
+        </div>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-2896781b elementor-section-full_width elementor-section-content-top elementor-section-height-default elementor-section-height-default" data-id="2896781b" data-element_type="section" id="talk" data-settings="{&quot;background_background&quot;:&quot;gradient&quot;,&quot;ekit_has_onepagescroll_dot&quot;:&quot;yes&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-7abdd959" data-id="7abdd959" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div data-ha-element-link="{&quot;url&quot;:&quot;#&quot;,&quot;is_external&quot;:&quot;&quot;,&quot;nofollow&quot;:&quot;&quot;,&quot;custom_attributes&quot;:&quot;&quot;}" style="cursor: pointer" class="elementor-element elementor-element-65b6dd81 elementor-position-left ha-css-transform-yes elementor-view-default elementor-vertical-align-top elementor-widget elementor-widget-icon-box" data-id="65b6dd81" data-element_type="widget" data-widget_type="icon-box.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-box-wrapper">
+						<div class="elementor-icon-box-icon">
+				<a class="elementor-icon elementor-animation-" href="#page-coments">
+				<i aria-hidden="true" class="hm hm-chat-bubble-single"></i>				</a>
+			</div>
+						<div class="elementor-icon-box-content">
+				<h3 class="elementor-icon-box-title">
+					<a href="#page-coments">Jeff Smith</a>
+				</h3>
+								<p class="elementor-icon-box-description"><span style="font-size: 15px; font-style: normal; font-weight: 200; white-space: normal;">"Graças a Modelo temos mais que uma bela casa"</span><br><br><b>
+<span><a href="#" style="color:#fff;">Ver mais</a><span></b></p>
+							</div>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-312ba7fe elementor-invisible elementor-widget elementor-widget-heading" data-id="312ba7fe" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;,&quot;_animation_delay&quot;:100}" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">Contatos</h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-59b398cd elementor-invisible elementor-widget elementor-widget-text-editor" data-id="59b398cd" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;,&quot;_animation_delay&quot;:150}" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix"><p>modelo@arquitetura.com</p>
+<p>+55 21 1234-5678</p>
+<p>3477 Av. Brigadeiro Faria Lima,<br>São Paulo, 04538-133</p></div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-60ce4322 elementor-invisible elementor-widget elementor-widget-heading" data-id="60ce4322" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;,&quot;_animation_delay&quot;:200}" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">Redes Sociais</h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-6d276653 elementor-shape-rounded elementor-grid-0 elementor-invisible elementor-widget elementor-widget-social-icons" data-id="6d276653" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;,&quot;_animation_delay&quot;:250}" data-widget_type="social-icons.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-social-icons-wrapper elementor-grid">
+							<div class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-animation-float elementor-repeater-item-fed0a94" target="_blank">
+						<span class="elementor-screen-only">Instagram</span>
+						<i class="fab fa-instagram"></i>					</a>
+				</div>
+							<div class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-pinterest elementor-animation-float elementor-repeater-item-aa17d6b" target="_blank">
+						<span class="elementor-screen-only">Pinterest</span>
+						<i class="fab fa-pinterest"></i>					</a>
+				</div>
+							<div class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-facebook elementor-animation-float elementor-repeater-item-abe0c7f" href="https://facebook.com/" target="_blank">
+						<span class="elementor-screen-only">Facebook</span>
+						<i class="fab fa-facebook"></i>					</a>
+				</div>
+							<div class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-youtube elementor-animation-float elementor-repeater-item-288da6a" target="_blank">
+						<span class="elementor-screen-only">Youtube</span>
+						<i class="fab fa-youtube"></i>					</a>
+				</div>
+							<div class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-whatsapp elementor-animation-float elementor-repeater-item-91775c1" target="_blank">
+						<span class="elementor-screen-only">Whatsapp</span>
+						<i class="fab fa-whatsapp"></i>					</a>
+				</div>
+					</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-673a42d1 elementor-invisible" data-id="673a42d1" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;animation&quot;:&quot;fadeIn&quot;,&quot;animation_delay&quot;:100}">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-11b5632b elementor-widget elementor-widget-heading" data-id="11b5632b" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">Entre em Contato</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-26d3fd5e elementor-widget elementor-widget-shortcode" data-id="26d3fd5e" data-element_type="widget" data-widget_type="shortcode.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-shortcode"><div class="forminator-ui forminator-custom-form forminator-custom-form-513 forminator-design--material  forminator_ajax" data-forminator-render="0" data-form="forminator-module-513"><br/></div><form
+				id="forminator-module-513"
+				class="forminator-ui forminator-custom-form forminator-custom-form-513 forminator-design--material  forminator_ajax"
+				action=""
+				method="post"
+				data-forminator-render="0"
+				data-form-id="513"
+				
+				data-design="material"
+				
+				
+				
+				data-grid="open"
+				
+				
+				style="display: none;"
+			><div class="forminator-response-message" aria-hidden="true"></div><div class="forminator-row"><div id="name-1" class="forminator-col forminator-col-12 "><div class="forminator-field"><label for="forminator-field-name-1" class="forminator-label">Nome</label><input type="text" name="name-1" value="" placeholder="John Doe" id="forminator-field-name-1" class="forminator-input forminator-name--field" aria-required="false" /></div></div></div><div class="forminator-row"><div id="email-1" class="forminator-col forminator-col-12 "><div class="forminator-field"><label for="forminator-field-email-1" class="forminator-label">E-mail</label><input type="email" name="email-1" value="" placeholder="johndoe@exemplo.com" id="forminator-field-email-1" class="forminator-input forminator-email--field" data-required="" aria-required="false" /></div></div></div><div class="forminator-row"><div id="textarea-1" class="forminator-col forminator-col-12 "><div class="forminator-field"><label for="forminator-field-textarea-1" class="forminator-label">Mensagem</label><textarea name="textarea-1" placeholder="Insira aqui sua mensagem" id="forminator-field-textarea-1" class="forminator-textarea" height="50" style="min-height:px;" ></textarea></div></div></div><input type="hidden" name="referer_url" value="" /><div class="forminator-row forminator-row-last"><div class="forminator-col"><div id="submit" class="forminator-field"><button class="forminator-button forminator-button-submit"><span>Enviar</span><span aria-hidden="true"></span></button></div></div></div><input type="hidden" id="forminator_nonce" name="forminator_nonce" value="f69831e589" /><input type="hidden" name="_wp_http_referer" value="/" /><input type="hidden" name="form_id" value="513"><input type="hidden" name="page_id" value="817"><input type="hidden" name="form_type" value="default"><input type="hidden" name="current_url" value="https://hellosites.ml/modelo-arquitetura/"><input type="hidden" name="render_id" value="0"><input type="hidden" name="action" value="forminator_submit_form_custom-forms"></form></div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-7744772 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="7744772" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;ekit_has_onepagescroll_dot&quot;:&quot;yes&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-abb00c7" data-id="abb00c7" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-f61afc5 elementor-widget elementor-widget-text-editor" data-id="f61afc5" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix"><p style="text-align: center;"><span style="color: #ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif; font-size: 13.68px;">Copyright © 2020 Hugo Rodrigues | Criado com </span><a class="customize-unpreviewable" style="box-sizing: inherit; -webkit-font-smoothing: antialiased; text-size-adjust: none; text-rendering: geometricprecision; transform: rotate(-1e-10deg); border: 0px; font-size: 13.68px; margin: 0px; outline: 0px; padding: 0px; vertical-align: baseline; color: #eaeaea; transition: all 0.2s linear 0s; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif; cursor: not-allowed !important;" href="https://wpastra.com/">Elementor</a></p></div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+						</div>
+						</div>
+					</div>
+		<script>document.body.classList.remove("no-js");</script>	<script>
+	if ( -1 !== navigator.userAgent.indexOf( 'MSIE' ) || -1 !== navigator.appVersion.indexOf( 'Trident/' ) ) {
+		document.body.classList.add( 'is-IE' );
+	}
+	</script>
+	<link rel='stylesheet' id='forminator-icons-css'  href="/modelo-arquitetura/wp-content/plugins/forminator/assets/forminator-ui/css/forminator-icons.min.css?ver=1.14.7" media='all' />
+<link rel='stylesheet' id='forminator-utilities-css'  href="/modelo-arquitetura/wp-content/plugins/forminator/assets/forminator-ui/css/src/forminator-utilities.min.css?ver=1.14.7" media='all' />
+<link rel='stylesheet' id='forminator-grid-default-css'  href="/modelo-arquitetura/wp-content/plugins/forminator/assets/forminator-ui/css/src/grid/forminator-grid.open.min.css?ver=1.14.7" media='all' />
+<link rel='stylesheet' id='forminator-forms-material-base-css'  href="/modelo-arquitetura/wp-content/plugins/forminator/assets/forminator-ui/css/src/form/forminator-form-material.base.min.css?ver=1.14.7" media='all' />
+<link rel='stylesheet' id='buttons-css'  href="/modelo-arquitetura/wp-includes/css/buttons.min.css?ver=5.6" media='all' />
+<script src="/modelo-arquitetura/wp-content/themes/twentytwentyone/assets/js/polyfills.js?ver=1.0" id='twenty-twenty-one-ie11-polyfills-js'></script>
+<script src="/modelo-arquitetura/wp-content/themes/twentytwentyone/assets/js/responsive-embeds.js?ver=1.0" id='twenty-twenty-one-responsive-embeds-script-js'></script>
+<script src="/modelo-arquitetura/wp-content/plugins/elementskit-lite/libs/framework/assets/js/frontend-script.js?ver=2.0.13" id='elementskit-framework-js-frontend-js'></script>
+<script id='elementskit-framework-js-frontend-js-after'>
+
+		var elementskit = {
+            resturl: 'https://hellosites.ml/modelo-arquitetura/wp-json/elementskit/v1/',
+        }
+
+		
+</script>
+<script src="/modelo-arquitetura/wp-content/plugins/elementskit-lite/widgets/init/assets/js/widget-scripts.js?ver=2.0.13" id='ekit-widget-scripts-js'></script>
+<script id='happy-elementor-addons-js-extra'>
+var HappyLocalize = {"ajax_url":"https:\/\/hellosites.ml\/modelo-arquitetura\/wp-admin\/admin-ajax.php","nonce":"321ad2f4e6"};
+</script>
+<script src="/modelo-arquitetura/wp-content/plugins/happy-elementor-addons/assets/js/happy-addons.min.js?ver=2.16.1" id='happy-elementor-addons-js'></script>
+<script src="/modelo-arquitetura/wp-includes/js/wp-embed.min.js?ver=5.6" id='wp-embed-js'></script>
+<script src="/modelo-arquitetura/wp-content/plugins/forminator/assets/js/library/jquery.validate.min.js?ver=1.14.7" id='forminator-jquery-validate-js'></script>
+<script src="/modelo-arquitetura/wp-content/plugins/forminator/assets/forminator-ui/js/forminator-form.min.js?ver=1.14.7" id='forminator-form-js'></script>
+<script id='forminator-front-scripts-js-extra'>
+var ForminatorFront = {"ajaxUrl":"https:\/\/hellosites.ml\/modelo-arquitetura\/wp-admin\/admin-ajax.php","cform":{"processing":"Enviando formul\u00e1rio, por favor espere","error":"Ocorreu um erro ao processar o formul\u00e1rio. Por Favor tente novamente","upload_error":"An upload error occurred processing the form. Please try again","pagination_prev":"Previous","pagination_next":"Pr\u00f3ximo","pagination_go":"Enviar","gateway":{"processing":"Processando pagamento, aguarde","paid":"Sucesso! Pagamento confirmado. Enviando Formul\u00e1rio, aguarde!","error":"Erro! Algo deu errado ao verificar o pagamento"},"captcha_error":"CAPTCHA Inv\u00e1lido","no_file_chosen":"Nenhum arquivo selecionado ainda","intlTelInput_utils_script":"https:\/\/hellosites.ml\/modelo-arquitetura\/wp-content\/plugins\/forminator\/assets\/js\/library\/intlTelInputUtils.js","process_error":"Please try again"},"poll":{"processing":"Enviando voto, aguarde","error":"Ocorreu um erro ao salvar o voto. Por favor tente novamente"},"select2":{"load_more":"Loading more results\u2026","no_result_found":"No results found","searching":"Searching\u2026","loaded_error":"The results could not be loaded."}};
+</script>
+<script src="/modelo-arquitetura/wp-content/plugins/forminator/build/front/front.multi.min.js?ver=1.14.7" id='forminator-front-scripts-js'></script>
+<script src="/modelo-arquitetura/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.0.15" id='elementor-frontend-modules-js'></script>
+<script src="/modelo-arquitetura/wp-includes/js/jquery/ui/core.min.js?ver=1.12.1" id='jquery-ui-core-js'></script>
+<script src="/modelo-arquitetura/wp-content/plugins/elementor/assets/lib/dialog/dialog.min.js?ver=4.8.1" id='elementor-dialog-js'></script>
+<script src="/modelo-arquitetura/wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js?ver=4.0.2" id='elementor-waypoints-js'></script>
+<script src="/modelo-arquitetura/wp-content/plugins/elementor/assets/lib/swiper/swiper.min.js?ver=5.3.6" id='swiper-js'></script>
+<script src="/modelo-arquitetura/wp-content/plugins/elementor/assets/lib/share-link/share-link.min.js?ver=3.0.15" id='share-link-js'></script>
+<script id='elementor-frontend-js-before'>
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false},"i18n":{"shareOnFacebook":"Compartilhar no Facebook","shareOnTwitter":"Compartilhar no Twitter","pinIt":"Fixar","download":"Baixar","downloadImage":"Baixar imagem","fullscreen":"Tela cheia","zoom":"Zoom","share":"Compartilhar","playVideo":"Reproduzir v\u00eddeo","previous":"Anterior","next":"Pr\u00f3ximo","close":"Fechar"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"version":"3.0.15","is_static":false,"legacyMode":{"elementWrappers":true},"urls":{"assets":"https:\/\/hellosites.ml\/modelo-arquitetura\/wp-content\/plugins\/elementor\/assets\/"},"settings":{"page":[],"editorPreferences":[]},"kit":{"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description"},"post":{"id":817,"title":"Modelo%20Arquitetura%20%E2%80%93%20Modelo%20Arquitetura%20de%20Hello%20Sites","excerpt":"","featuredImage":false}};
+</script>
+<script src="/modelo-arquitetura/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.0.15" id='elementor-frontend-js'></script>
+<script src="/modelo-arquitetura/wp-content/plugins/elementskit-lite/widgets/init/assets/js/elementor.js?ver=2.0.13" id='elementskit-elementor-js'></script>
+<script src="/modelo-arquitetura/wp-content/plugins/elementskit-lite/modules/controls/assets/js/widgetarea-editor.js?ver=2.0.13" id='elementskit-js-widgetarea-control-editor-js'></script>
+	<script>
+	/(trident|msie)/i.test(navigator.userAgent)&&document.getElementById&&window.addEventListener&&window.addEventListener("hashchange",(function(){var t,e=location.hash.substring(1);/^[A-z0-9_-]+$/.test(e)&&(t=document.getElementById(e))&&(/^(?:a|select|input|button|textarea)$/i.test(t.tagName)||(t.tabIndex=-1),t.focus())}),!1);
+	</script>
+						<style type="text/css"
+						   id="forminator-custom-form-styles-513">
+						.forminator-custom-form-513 {
+		padding-top: 0;
+		padding-right: 0;
+		padding-bottom: 0;
+		padding-left: 0;
+	}
+
+
+	.forminator-custom-form-513 {
+		border-width: 0;
+		border-style: none;
+		border-radius: 0;
+		-moz-border-radius: 0;
+		-webkit-border-radius: 0;
+	}
+
+
+	.forminator-custom-form-513 {
+					border-color: rgba(0,0,0,0);
+							background-color: rgba(0,0,0,0);
+			}
+
+
+.forminator-custom-form-513 .forminator-pagination-footer .forminator-button-paypal {
+			flex: 1;
+	}
+.forminator-custom-form-513 .forminator-button-paypal > .paypal-buttons {
+		}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-response-message,
+	.forminator-custom-form-513.forminator-design--material .forminator-response-message p {
+		font-size: 15px;
+		font-family: inherit;
+		font-weight: 400;
+	}
+
+
+	.forminator-custom-form-513.forminator-design--material .forminator-response-message.forminator-error {
+					box-shadow: inset 4px 0 0 0 #E04562, 1px 1px 4px 0 rgba(0,0,0,0.3);
+			-moz-box-shadow: inset 4px 0 0 0 #E04562, 1px 1px 4px 0 rgba(0,0,0,0.3);
+			-webkit-box-shadow: inset 4px 0 0 0 #E04562, 1px 1px 4px 0 rgba(0,0,0,0.3);
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-response-message.forminator-error:hover,
+	.forminator-custom-form-513.forminator-design--material .forminator-response-message.forminator-error:focus,
+	.forminator-custom-form-513.forminator-design--material .forminator-response-message.forminator-error:active {
+					box-shadow: inset 4px 0 0 0 #E04562, 1px 1px 4px 0 rgba(0,0,0,0.3);
+			-moz-box-shadow: inset 4px 0 0 0 #E04562, 1px 1px 4px 0 rgba(0,0,0,0.3);
+			-webkit-box-shadow: inset 4px 0 0 0 #E04562, 1px 1px 4px 0 rgba(0,0,0,0.3);
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-response-message.forminator-error,
+	.forminator-custom-form-513.forminator-design--material .forminator-response-message.forminator-error p {
+					color: #333333;
+			}
+
+
+	.forminator-custom-form-513.forminator-design--material .forminator-response-message.forminator-success {
+					box-shadow: inset 4px 0 0 0 #1ABCA1, 1px 1px 4px 0 rgba(0,0,0,0.3);
+			-moz-box-shadow: inset 4px 0 0 0 #1ABCA1, 1px 1px 4px 0 rgba(0,0,0,0.3);
+			-webkit-box-shadow: inset 4px 0 0 0 #1ABCA1, 1px 1px 4px 0 rgba(0,0,0,0.3);
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-response-message.forminator-success:hover,
+	.forminator-custom-form-513.forminator-design--material .forminator-response-message.forminator-success:focus,
+	.forminator-custom-form-513.forminator-design--material .forminator-response-message.forminator-success:active {
+					box-shadow: inset 4px 0 0 0 #1ABCA1, 1px 1px 4px 0 rgba(0,0,0,0.3);
+			-moz-box-shadow: inset 4px 0 0 0 #1ABCA1, 1px 1px 4px 0 rgba(0,0,0,0.3);
+			-webkit-box-shadow: inset 4px 0 0 0 #1ABCA1, 1px 1px 4px 0 rgba(0,0,0,0.3);
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-response-message.forminator-success,
+	.forminator-custom-form-513.forminator-design--material .forminator-response-message.forminator-success p {
+					color: #333333;
+			}
+
+
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-response-message.forminator-loading,
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-response-message.forminator-loading {
+					background-color: #F8F8F8;
+			}
+
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-response-message.forminator-loading,
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-response-message.forminator-loading p {
+					color: #6b6b6b;
+			}
+
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-response-message.forminator-loading,
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-response-message.forminator-loading p {
+					color: #6b6b6b;
+			}
+
+
+
+	.forminator-custom-form-513.forminator-design--material .forminator-title {
+		font-size: 45px;
+		font-family: inherit;
+		font-weight: 400;
+		text-align: left;
+	}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-subtitle {
+		font-size: 18px;
+		font-family: inherit;
+		font-weight: 400;
+		text-align: left;
+	}
+
+
+	.forminator-custom-form-513.forminator-design--material .forminator-title {
+					color: #333333;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-subtitle {
+					color: #333333;
+			}
+
+
+
+	.forminator-custom-form-513.forminator-design--material .forminator-label[class*="forminator-floating-"] {
+		font-size: 16px;
+		font-family: inherit;
+		font-weight: 400;
+	}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-label:not([class*="forminator-floating-"]) {
+		font-size: 12px;
+		font-family: inherit;
+		font-weight: 700;
+	}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-is_filled .forminator-label[class*="forminator-floating-"],
+	.forminator-custom-form-513.forminator-design--material .forminator-is_active .forminator-label[class*="forminator-floating-"] {
+		font-size: 12px;
+		font-family: inherit;
+		font-weight: 700;
+	}
+
+
+	.forminator-custom-form-513.forminator-design--material .forminator-label[class*="forminator-floating-"] {
+					color: #888888;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-label:not([class*="forminator-floating-"]) {
+					color: #777771;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-label:not([class*="forminator-floating-"]) .forminator-required {
+					color: #E04562;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-is_filled .forminator-label[class*="forminator-floating-"] {
+					color: #777771;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-is_active .forminator-label[class*="forminator-floating-"] {
+					color: rgba(255,255,255,0);
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-is_filled.forminator-has_error .forminator-label[class*="forminator-floating-"],
+	.forminator-custom-form-513.forminator-design--material .forminator-is_active.forminator-has_error .forminator-label[class*="forminator-floating-"] {
+					color: #E04562;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-is_filled .forminator-label[class*="forminator-floating-"] .forminator-required,
+	.forminator-custom-form-513.forminator-design--material .forminator-is_active .forminator-label[class*="forminator-floating-"] .forminator-required {
+					color: #E04562;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-is_filled.forminator-has_error .forminator-label[class*="forminator-floating-"] .forminator-required,
+	.forminator-custom-form-513.forminator-design--material .forminator-is_active.forminator-has_error .forminator-label[class*="forminator-floating-"] .forminator-required {
+					color: #E04562;
+			}
+
+
+
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-description-password,
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-description-password {
+		display: block;
+	}
+
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-description,
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-description p,
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-description,
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-description p {
+		font-size: 12px;
+		font-family: inherit;
+		font-weight: 400;
+	}
+
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-description a,
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-description a:hover,
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-description a:focus,
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-description a:active,
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-description a,
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-description a:hover,
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-description a:focus,
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-description a:active {
+		box-shadow: none;
+		text-decoration: none;
+	}
+
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-description p,
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-description p {
+		margin: 0;
+		padding: 0;
+		border: 0;
+	}
+
+
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-description,
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-description p,
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-description,
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-description p {
+					color: #777771;
+			}
+
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-description a,
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-description p a,
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-description a,
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-description p a {
+		color: #17A8E3;
+	}
+
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-description a:hover,
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-description p a:hover,
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-description a:hover,
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-description p a:hover {
+		color: #008FCA;
+	}
+
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-description a:active,
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-description p a:active,
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-description a:active,
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-description p a:active {
+		color: #008FCA;
+	}
+
+
+
+	.forminator-custom-form-513.forminator-design--material .forminator-error-message {
+		font-size: 12px;
+		font-family: inherit;
+		font-weight: 500;
+	}
+
+
+	.forminator-custom-form-513.forminator-design--material .forminator-error-message {
+					color: #E04562;
+			}
+
+
+
+	.forminator-custom-form-513.forminator-design--material .forminator-input {
+		font-size: 16px;
+		font-family: inherit;
+		font-weight: 400;
+	}
+
+
+	.forminator-custom-form-513.forminator-design--material .forminator-input,
+	.forminator-custom-form-513.forminator-design--material .forminator-input:hover,
+	.forminator-custom-form-513.forminator-design--material .forminator-input:focus,
+	.forminator-custom-form-513.forminator-design--material .forminator-input:active {
+					border-color: #777771;
+							color: #ffffff;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-input::placeholder {
+					color: #888888;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-input:-moz-placeholder {
+					color: #888888;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-input::-moz-placeholder {
+					color: #888888;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-input:-ms-input-placeholder {
+					color: #888888;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-input::-webkit-input-placeholder {
+					color: #888888;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-input--wrap:after {
+					background-color: #ffffff;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-is_active .forminator-input--wrap:after {
+					background-color: rgba(255,255,255,0);
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-has_error .forminator-input--wrap:after {
+					background-color: #E04562;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-input-with-icon [class*="forminator-icon-"] {
+					color: #777771;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-is_active .forminator-input-with-icon [class*="forminator-icon-"] {
+					color: rgba(255,255,255,0);
+			}
+
+
+
+	.forminator-custom-form-513.forminator-design--material .forminator-suffix {
+		font-size: 16px;
+		font-family: inherit;
+		font-weight: 500;
+	}
+
+
+	.forminator-custom-form-513.forminator-design--material .forminator-suffix {
+					color: #000000;
+			}
+
+
+
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-prefix,
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-prefix {
+		font-size: 16px;
+		font-family: inherit;
+		font-weight: 500;
+	}
+
+
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-prefix,
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-prefix {
+					color: #000000;
+			}
+
+
+
+	.forminator-custom-form-513.forminator-design--material .forminator-textarea {
+		font-size: 16px;
+		font-family: inherit;
+		font-weight: 400;
+	}
+
+
+	.forminator-custom-form-513.forminator-design--material .forminator-textarea,
+	.forminator-custom-form-513.forminator-design--material .forminator-textarea:hover,
+	.forminator-custom-form-513.forminator-design--material .forminator-textarea:focus,
+	.forminator-custom-form-513.forminator-design--material .forminator-textarea:active {
+					border-color: #777771;
+				background-color: transparent;
+					color: #ffffff;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-textarea::placeholder {
+					color: #888888;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-textarea:-moz-placeholder {
+					color: #888888;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-textarea::-moz-placeholder {
+					color: #888888;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-textarea:-ms-input-placeholder {
+					color: #888888;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-textarea::-webkit-input-placeholder {
+					color: #888888;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-textarea--wrap:after {
+					border-color: #ffffff;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-is_active .forminator-textarea--wrap:after {
+					border-color: rgba(255,255,255,0);
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-has_error .forminator-textarea--wrap:after {
+					border-color: #E04562;
+			}
+
+
+
+	.forminator-custom-form-513.forminator-design--material .forminator-radio {
+		font-size: 16px;
+		font-family: inherit;
+		font-weight: 400;
+	}
+
+
+	.forminator-custom-form-513.forminator-design--material .forminator-radio {
+					color: #000000;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-radio span[aria-hidden] {
+					border-color: #777771;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-radio span[aria-hidden]:before {
+					background-color: #17A8E3;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-radio span[aria-hidden]:after {
+					background-color: #17A8E3;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-radio input:checked + span[aria-hidden] {
+					border-color: #17A8E3;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-has_error .forminator-radio span[aria-hidden] {
+					border-color: #E04562;
+			}
+
+
+
+	.forminator-custom-form-513.forminator-design--material .forminator-checkbox {
+		font-size: 16px;
+		font-family: inherit;
+		font-weight: 400;
+	}
+
+
+	.forminator-custom-form-513.forminator-design--material .forminator-checkbox {
+					color: #000000;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-checkbox span[aria-hidden] {
+					border-color: #777771;
+							color: #17A8E3;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-checkbox span[aria-hidden]:after {
+					background-color: #17A8E3;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-checkbox input:checked + span[aria-hidden] {
+					border-color: #17A8E3;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-has_error .forminator-checkbox span[aria-hidden] {
+					border-color: #E04562;
+			}
+
+
+
+	.forminator-custom-form-513.forminator-design--material .forminator-select-container .forminator-select-list .forminator-value {
+		font-size: 16px;
+		font-family: inherit;
+		font-weight: 400;
+	}
+
+
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-select-container .forminator-select-list .forminator-value {
+					box-shadow: inset 0 -1px 0 0 #777771;
+			-moz-box-shadow: inset 0 -1px 0 0 #777771;
+			-webkit-box-shadow: inset 0 -1px 0 0 #777771;
+							color: #000000;
+			}
+
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-select-container .forminator-select-list .forminator-value:before {
+					background-color: #17A8E3;
+			}
+
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-select-container .forminator-select-list .forminator-dropdown-handle [class*=forminator-icon-] {
+					color: #777771;
+			}
+
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-is_hover .forminator-select-container .forminator-select-list .forminator-value {
+					color: #000000;
+			}
+
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-is_hover .forminator-select-container .forminator-select-list .forminator-dropdown-handle [class*=forminator-icon-] {
+					color: #17A8E3;
+			}
+
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-is_active .forminator-select-container .forminator-select-list .forminator-value:before {
+					background-color: #17A8E3;
+			}
+
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-is_active .forminator-select-container .forminator-select-list .forminator-value {
+					color: #000000;
+			}
+
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-is_active .forminator-select-container .forminator-select-list .forminator-dropdown-handle [class*=forminator-icon-] {
+					color: #17A8E3;
+			}
+
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-has_error .forminator-select-container .forminator-select-list .forminator-value:before {
+					border-color: #E04562;
+			}
+
+
+
+	.forminator-custom-form-513.forminator-dropdown--material .forminator-select-container .forminator-select-list .forminator-dropdown-list {
+		font-size: 16px;
+		font-family: inherit;
+		font-weight: 400;
+	}
+
+
+	.forminator-custom-form-513.forminator-design--material .forminator-select-container .forminator-select-list .forminator-dropdown-list {
+					background-color: #E6E6E6;
+							color: #777771;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-select-container .forminator-select-list .forminator-dropdown-list li:hover {
+					background-color: #DDDDDD;
+							color: #000000;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-select-container .forminator-select-list .forminator-dropdown-list li.current {
+					background-color: #17A8E3;
+							color: #FFFFFF;
+			}
+
+
+
+	.forminator-custom-form-513.forminator-design--material .forminator-select2 + .select2-container--default .select2-selection--single .select2-selection__rendered {
+		font-size: 16px;
+		font-family: inherit;
+		font-weight: 400;
+	}
+
+
+	.forminator-custom-form-513.forminator-design--material .forminator-select2 + .select2-container--default .select2-selection--single {
+					border-color: #777771;
+							color: #000000;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-select2 + .select2-container--default .select2-selection--single:before {
+					background-color: #17A8E3;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-select2 + .select2-container--default .selection .select2-selection--single .select2-selection__arrow {
+					color: #777771;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-select2 + .select2-container--default .select2-selection--single:hover {
+					color: #000000;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-select2 + .select2-container--default .select2-selection--single:hover .select2-selection__arrow {
+					color: #17A8E3;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-select2 + .select2-container--default.select2-container--open .select2-selection--single {
+					border-color: #17A8E3;
+							color: #000000;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-select2 + .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow {
+					color: #17A8E3;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-has_error .forminator-select2 + .select2-container--default .select2-selection--single {
+					border-color: #E04562;
+			}
+
+
+
+	.forminator-custom-form-513.forminator-design--material .select2-search .select2-search__field {
+		font-size: 16px;
+		font-family: inherit;
+		font-weight: 400;
+	}
+
+	.forminator-custom-form-513.forminator-design--material .select2-results .select2-results__options .select2-results__option {
+		font-size: 16px;
+		font-family: inherit;
+		font-weight: 400;
+	}
+
+
+	.forminator-custom-form-513.forminator-dropdown--material {
+					background-color: #E6E6E6;
+			}
+
+	.forminator-custom-form-513.forminator-dropdown--material .select2-results .select2-results__options .select2-results__option {
+					color: #777771;
+			}
+
+	.forminator-custom-form-513.forminator-dropdown--material .select2-results .select2-results__options .select2-results__option:hover,
+	.forminator-custom-form-513.forminator-dropdown--material .select2-results .select2-results__options .select2-results__option.select2-results__option--highlighted {
+					background-color: #DDDDDD;
+							color: #000000;
+			}
+
+	.forminator-custom-form-513.forminator-dropdown--material .select2-results .select2-results__options .select2-results__option[aria-selected="true"] {
+					background-color: #17A8E3;
+							color: #FFFFFF;
+			}
+
+	.forminator-custom-form-513.forminator-dropdown--material .select2-search input,
+	.forminator-custom-form-513.forminator-dropdown--material .select2-search input:focus,
+	.forminator-custom-form-513.forminator-dropdown--material .select2-search input:hover {
+					background-color: #FFFFFF;
+							color: #000000;
+			}
+
+
+
+	.forminator-custom-form-513.forminator-design--material .forminator-multiselect .forminator-option {
+		font-size: 16px;
+		font-family: inherit;
+		font-weight: 400;
+	}
+
+
+	.forminator-custom-form-513.forminator-design--material .forminator-multiselect .forminator-option {
+					border-color: #777771;
+							color: #777771;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-multiselect .forminator-option:hover {
+					border-color: #000000;
+							color: #000000;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-multiselect .forminator-option.forminator-is_checked {
+					border-color: #17A8E3;
+							color: #17A8E3;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-has_error .forminator-multiselect .forminator-option {
+					border-color: rgba(255,255,255,0);
+							color: rgba(255,255,255,0);
+			}
+
+
+
+	.forminator-custom-form-513.forminator-calendar--material {
+		font-family: inherit;
+	}
+
+
+	.forminator-custom-form-513.forminator-calendar--material:before {
+					background-color: #E6E6E6;
+			}
+
+	.forminator-custom-form-513.forminator-calendar--material .ui-datepicker-header {
+					background-color: #17A8E3;
+			}
+
+	.forminator-custom-form-513.forminator-calendar--material .ui-datepicker-header .ui-corner-all {
+					color: #FFFFFF;
+			}
+
+	.forminator-custom-form-513.forminator-calendar--material .ui-datepicker-header .ui-datepicker-title select {
+					background-color: #FFFFFF;
+							color: #777771;
+			}
+
+	.forminator-custom-form-513.forminator-calendar--material .ui-datepicker-calendar thead th {
+					color: #333333;
+			}
+
+	.forminator-custom-form-513.forminator-calendar--material .ui-datepicker-calendar tbody td a.ui-state-default,
+	.forminator-custom-form-513.forminator-calendar--material .ui-datepicker-calendar tbody td.ui-state-disabled span {
+					border-color: #E6E6E6;
+							background-color: #E6E6E6;
+							color: #777771;
+			}
+
+	.forminator-custom-form-513.forminator-calendar--material .ui-datepicker-calendar tbody td a.ui-state-default:hover,
+	.forminator-custom-form-513.forminator-calendar--material .ui-datepicker-calendar tbody td a.ui-state-default.ui-state-hover {
+					border-color: #DDDDDD;
+							background-color: #DDDDDD;
+							color: #777771;
+			}
+
+	.forminator-custom-form-513.forminator-calendar--material .ui-datepicker-calendar tbody td a.ui-state-default:active,
+	.forminator-custom-form-513.forminator-calendar--material .ui-datepicker-calendar tbody td a.ui-state-default.ui-state-active {
+					border-color: #17A8E3;
+							background-color: #17A8E3;
+							color: #FFFFFF;
+			}
+
+	.forminator-custom-form-513.forminator-calendar--material .ui-datepicker-calendar tbody td a.ui-state-default.ui-state-highlight {
+					border-color: #17A8E3;
+							background-color: #C8DEE7;
+							color: #17A8E3;
+			}
+
+	.forminator-custom-form-513.forminator-calendar--material .ui-datepicker-calendar tbody td a.ui-state-default.ui-state-highlight:active,
+	.forminator-custom-form-513.forminator-calendar--material .ui-datepicker-calendar tbody td a.ui-state-default.ui-state-highlight.ui-state-active {
+					border-color: #17A8E3;
+							background-color: #17A8E3;
+							color: #FFFFFF;
+			}
+
+
+
+	.forminator-custom-form-513.forminator-design--material .forminator-button-upload {
+		font-size: 14px;
+		font-family: inherit;
+		font-weight: 500;
+	}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-file-upload > span {
+		font-size: 12px;
+		font-family: inherit;
+		font-weight: 500;
+	}
+
+
+	.forminator-custom-form-513.forminator-design--material .forminator-button-upload {
+					background-color: #1ABCA1;
+							color: #FFFFFF;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-button-upload:hover {
+					background-color: #159C85;
+							color: #FFFFFF;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-button-upload:active {
+					background-color: #159C85;
+							color: #FFFFFF;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-file-upload > span {
+					color: #777771;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-button-delete {
+					background-color: rgba(0,0,0,0);
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-button-delete:hover {
+					background-color: #F9E4E8;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-button-delete:active {
+					background-color: #F9E4E8;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-button-delete [class*="forminator-icon-"] {
+					color: #E04562;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-button-delete:hover [class*="forminator-icon-"] {
+					color: #E04562;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-button-delete:active [class*="forminator-icon-"] {
+					color: #E04562;
+			}
+
+
+
+	/*
+	====================
+	MU Panel Font Styles
+	====================
+	*/
+
+	/* STATE: Default */
+
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-multi-upload .forminator-multi-upload-message p,
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-multi-upload .forminator-multi-upload-message p {
+		font-size: 13px;
+		line-height: 1.7;
+		font-weight: 400;
+	}
+
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-multi-upload .forminator-multi-upload-message p a,
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-multi-upload .forminator-multi-upload-message p a:visited,
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-multi-upload .forminator-multi-upload-message p a:hover,
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-multi-upload .forminator-multi-upload-message p a:focus,
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-multi-upload .forminator-multi-upload-message p a,
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-multi-upload .forminator-multi-upload-message p a:visited,
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-multi-upload .forminator-multi-upload-message p a:hover,
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-multi-upload .forminator-multi-upload-message p a:focus {
+		font-weight: 700;
+		text-decoration: underline;
+	}
+
+	/*
+	====================
+	MU File Color Styles
+	====================
+	*/
+
+	/* STATE: Default */
+
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-uploaded-file .forminator-uploaded-file--title,
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-uploaded-file .forminator-uploaded-file--title {
+		font-size: 13px;
+		line-height: 1.3;
+		font-weight: 700;
+	}
+
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-uploaded-file .forminator-uploaded-file--size,
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-uploaded-file .forminator-uploaded-file--size {
+		font-size: 12px;
+		line-height: 1.4em;
+		font-weight: 700;
+	}
+
+
+	/*
+	====================
+	MU Panel Color Styles
+	====================
+	*/
+
+	/* STATE: Default */
+
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-multi-upload,
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-multi-upload {
+		cursor: pointer;
+					border-color: #777771;
+				background-color: transparent;
+					color: #777771;
+			}
+
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-multi-upload .forminator-multi-upload-message p,
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-multi-upload .forminator-multi-upload-message p {
+					color: #666666;
+			}
+
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-multi-upload .forminator-multi-upload-message p a,
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-multi-upload .forminator-multi-upload-message p a:visited,
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-multi-upload .forminator-multi-upload-message p a:hover,
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-multi-upload .forminator-multi-upload-message p a:focus,
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-multi-upload .forminator-multi-upload-message p a,
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-multi-upload .forminator-multi-upload-message p a:visited,
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-multi-upload .forminator-multi-upload-message p a:hover,
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-multi-upload .forminator-multi-upload-message p a:focus {
+					color: #17A8E3;
+			}
+
+	/* STATE: Hover */
+
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-multi-upload:hover,
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-multi-upload:hover {
+					border-color: #17A8E3;
+							color: #777771;
+			}
+
+	/* STATE: Drag Over */
+
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-multi-upload.forminator-dragover,
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-multi-upload.forminator-dragover {
+					border-color: #17A8E3;
+				background-color: transparent;
+					color: #17A8E3;
+			}
+
+	/* STATE: Error */
+
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-has_error .forminator-multi-upload,
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-has_error .forminator-multi-upload {
+					border-color: #E04562;
+				background-color: transparent;
+					color: #777771;
+			}
+
+	/*
+	====================
+	MU File Color Styles
+	====================
+	*/
+
+	/* STATE: Default */
+
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-uploaded-file .forminator-uploaded-file--preview,
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-uploaded-file .forminator-uploaded-file--preview {
+					border-color: #777771;
+				background-color: transparent;
+	}
+
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-uploaded-file .forminator-uploaded-file--preview [class*="forminator-icon-"],
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-uploaded-file .forminator-uploaded-file--preview [class*="forminator-icon-"] {
+					color: #777771;
+			}
+
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-uploaded-file .forminator-uploaded-file--title,
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-uploaded-file .forminator-uploaded-file--title {
+					color: #333333;
+			}
+
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-uploaded-file .forminator-uploaded-file--size,
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-uploaded-file .forminator-uploaded-file--size {
+					color: #888888;
+			}
+
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-uploaded-file .forminator-uploaded-file--size [class*="forminator-icon-"],
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-uploaded-file .forminator-uploaded-file--size [class*="forminator-icon-"] {
+					color: #888888;
+			}
+
+	/* Error */
+
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-uploaded-file.forminator-has_error .forminator-uploaded-file--preview,
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-uploaded-file.forminator-has_error .forminator-uploaded-file--preview,
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-uploaded-file.forminator-has_error .forminator-uploaded-file--image,
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-uploaded-file.forminator-has_error .forminator-uploaded-file--image {
+					border-color: #E04562;
+				background-color: transparent;
+	}
+
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-uploaded-file.forminator-has_error .forminator-uploaded-file--preview [class*="forminator-icon-"],
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-uploaded-file.forminator-has_error .forminator-uploaded-file--preview [class*="forminator-icon-"] {
+					color: #777771;
+			}
+
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-uploaded-file.forminator-has_error .forminator-uploaded-file--size [class*="forminator-icon-"],
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-uploaded-file.forminator-has_error .forminator-uploaded-file--size [class*="forminator-icon-"] {
+					color: #E04562;
+			}
+
+
+
+	/*
+	====================
+	Signature Font Styles
+	====================
+	*/
+
+	/* STATE: Default */
+
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-field-signature:not(.forminator-is_hover):not(.forminator-is_filled) .forminator-label,
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-field-signature:not(.forminator-is_hover):not(.forminator-is_filled) .forminator-label,
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-signature .forminator-signature--placeholder,
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-signature .forminator-signature--placeholder {
+		font-size: 16px;
+		font-weight: 400;
+	}
+
+
+	/*
+	====================
+	Signature Colors
+	====================
+	*/
+
+	/* STATE: Default */
+
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-signature,
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-signature {
+					border-color: #777771;
+			}
+
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-field-signature:not(.forminator-is_hover):not(.forminator-is_filled) .forminator-label,
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-field-signature:not(.forminator-is_hover):not(.forminator-is_filled) .forminator-label,
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-field-signature:not(.forminator-is_hover):not(.forminator-is_filled) .forminator-label .forminator-required,
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-field-signature:not(.forminator-is_hover):not(.forminator-is_filled) .forminator-label .forminator-required,
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-signature .forminator-signature--placeholder,
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-signature .forminator-signature--placeholder {
+					color: #888888;
+			}
+
+	/* STATE: Hover */
+
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-field-signature.forminator-is_hover .forminator-signature,
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-field-signature.forminator-is_hover .forminator-signature {
+					border-color: #17A8E3;
+			}
+
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-field-signature.forminator-is_hover .forminator-label,
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-field-signature.forminator-is_hover .forminator-label {
+					color: #17A8E3;
+			}
+
+	/* STATE: Error */
+
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-field-signature.forminator-has_error .forminator-signature,
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-field-signature.forminator-has_error .forminator-signature {
+					border-color: #E04562;
+			box-shadow: inset 0 0 0 1px #E04562;
+			-moz-box-shadow: inset 0 0 0 1px #E04562;
+			-webkit-box-shadow: inset 0 0 0 1px #E04562;
+			}
+
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-field-signature.forminator-has_error.forminator-is_hover .forminator-label,
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-field-signature.forminator-has_error.forminator-is_hover .forminator-label {
+					color: #E04562;
+			}
+
+
+
+	.forminator-custom-form-513.forminator-design--material .forminator-button-submit {
+		font-size: 14px;
+		font-family: inherit;
+		font-weight: 500;
+	}
+
+
+	.forminator-custom-form-513.forminator-design--material .forminator-button-submit {
+					background-color: rgba(255,255,255,0.25);
+							color: #FFFFFF;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-button-submit:hover {
+					background-color: rgba(0,0,0,0.18);
+							color: #FFFFFF;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-button-submit:active {
+					background-color: rgba(0,0,0,0.3);
+							color: #FFFFFF;
+			}
+
+
+
+	.forminator-custom-form-513.forminator-design--material .forminator-pagination-steps .forminator-step .forminator-step-label {
+		font-size: 12px;
+		font-family: inherit;
+		font-weight: 500;
+	}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-pagination-steps .forminator-step .forminator-step-dot {
+		font-size: 13px;
+		font-family: inherit;
+		font-weight: 500;
+	}
+
+
+	.forminator-custom-form-513.forminator-design--material .forminator-pagination-steps .forminator-break {
+					background-color: #777771;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-pagination-steps .forminator-step .forminator-step-label {
+					color: #17A8E3;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-pagination-steps .forminator-step .forminator-step-dot {
+					background-color: #17A8E3;
+							color: #FFFFFF;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-pagination-steps .forminator-step.forminator-current ~ .forminator-step .forminator-step-label {
+					color: #777771;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-pagination-steps .forminator-step.forminator-current ~ .forminator-step .forminator-step-dot {
+					background-color: #777771;
+							color: #FFFFFF;
+			}
+
+
+
+	.forminator-custom-form-513.forminator-design--material .forminator-pagination-progress .forminator-progress-label {
+		font-size: 12px;
+		font-family: inherit;
+		font-weight: 500;
+	}
+
+
+	.forminator-custom-form-513.forminator-design--material .forminator-pagination-progress .forminator-progress-label {
+					color: #777771;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-pagination-progress .forminator-progress-bar {
+					background-color: #E6E6E6;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-pagination-progress .forminator-progress-bar span {
+					background-color: #17A8E3;
+			}
+
+
+
+	.forminator-custom-form-513.forminator-design--material .forminator-button-back {
+		font-size: 14px;
+		font-family: inherit;
+		font-weight: 500;
+	}
+
+
+	.forminator-custom-form-513.forminator-design--material .forminator-button-back {
+					background-color: #1ABCA1;
+							color: #FFFFFF;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-button-back:hover {
+					background-color: #159C85;
+							color: #FFFFFF;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-button-back:active {
+					background-color: #159C85;
+							color: #FFFFFF;
+			}
+
+
+
+	.forminator-custom-form-513.forminator-design--material .forminator-button-next {
+		font-size: 14px;
+		font-family: inherit;
+		font-weight: 500;
+	}
+
+
+	.forminator-custom-form-513.forminator-design--material .forminator-button-next {
+					background-color: #1ABCA1;
+							color: #FFFFFF;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-button-next:hover {
+					background-color: #159C85;
+							color: #FFFFFF;
+			}
+
+	.forminator-custom-form-513.forminator-design--material .forminator-button-next:active {
+					background-color: #159C85;
+							color: #FFFFFF;
+			}
+
+
+
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-input--stripe .StripeElement,
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-input--stripe .StripeElement {
+					color: #ffffff;
+			}
+
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-input--stripe .StripeElement:after,
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-input--stripe .StripeElement:after {
+					background-color: #777771;
+			}
+
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-input--stripe:after,
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-input--stripe:after {
+					background-color: #ffffff;
+			}
+
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-is_active .forminator-input--stripe:after,
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-is_active .forminator-input--stripe:after {
+					background-color: rgba(255,255,255,0);
+			}
+
+	.et-db #et-boc .et_pb_module .forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-has_error .forminator-input--stripe:after,
+	.forminator-ui.forminator-custom-form-513.forminator-design--material .forminator-has_error .forminator-input--stripe:after {
+					background-color: #E04562;
+			}					</style>
+
+							<script type="text/javascript">
+			jQuery(document).ready(function () {
+				window.Forminator_Cform_Paginations = window.Forminator_Cform_Paginations || [];
+								window.Forminator_Cform_Paginations[513] =
+				{"has-pagination":false,"pagination-header-design":"show","pagination-header":"nav","last-steps":"Terminar","last-previous":"Previous","pagination-labels":"default","has-paypal":false};
+
+				var runForminatorFront = function () {
+					jQuery('#forminator-module-513[data-forminator-render="0"]')
+						.forminatorFront({"form_type":"custom-form","inline_validation":true,"rules":"\"email-1\": {\n},\n","messages":"\"email-1\": {\n},\n","conditions":{"fields":[],"relations":{"name-1":[],"email-1":[],"textarea-1":[],"submit":[]}},"calendar":"{\"days\":[\"Dom\",\"Seg\",\"Ter\",\"Qua\",\"Qui\",\"Sex\",\"Sab\"],\"months\":[\"Jan\",\"Feb\",\"Mar\",\"Apr\",\"Maio\",\"Jun\",\"Jul\",\"Aug\",\"Sep\",\"Oct\",\"Nov\",\"Dec\"]}","paypal_config":{"live_id":"","sandbox_id":"","redirect_url":"http:\/\/localhost","form_id":513},"forminator_fields":["address","calculation","captcha","currency","custom","date","email","gdprcheckbox","hidden","html","checkbox","name","number","page-break","password","paypal","phone","postdata","radio","section","select","stripe","text","textarea","time","upload","url"],"max_nested_formula":5,"general_messages":{"calculation_error":"Failed to calculate field.","payment_require_ssl_error":"SSL required to submit this form, please check your URL.","payment_require_amount_error":"PayPal amount must be greater than 0."},"payment_require_ssl":false,"fadeout":"","fadeout_time":5000,"has_loader":true,"loader_label":"Enviando...","calcs_memoize_time":300,"is_reset_enabled":true});
+				}
+
+				runForminatorFront();
+
+				if (window.elementorFrontend) {
+					if (typeof elementorFrontend.hooks !== "undefined") {
+						elementorFrontend.hooks.addAction('frontend/element_ready/global', function () {
+							runForminatorFront();
+						});
+					}
+				}
+
+								if (typeof ForminatorValidationErrors !== 'undefined') {
+					var forminatorFrontSubmit = jQuery(ForminatorValidationErrors.selector).data('forminatorFrontSubmit');
+					if (typeof forminatorFrontSubmit !== 'undefined') {
+						forminatorFrontSubmit.show_messages(ForminatorValidationErrors.errors);
+					}
+				}
+				if (typeof ForminatorFormHider !== 'undefined') {
+					var forminatorFront = jQuery(ForminatorFormHider.selector).data('forminatorFront');
+					if (typeof forminatorFront !== 'undefined') {
+						jQuery(forminatorFront.forminator_selector).find('.forminator-row').hide();
+						jQuery(forminatorFront.forminator_selector).find('.forminator-pagination-steps').hide();
+						jQuery(forminatorFront.forminator_selector).find('.forminator-pagination-footer').hide();
+					}
+				}
+				if (typeof ForminatorFormNewTabRedirect !== 'undefined') {
+					var forminatorFront = ForminatorFormNewTabRedirect.url;
+					if (typeof forminatorFront !== 'undefined') {
+						window.open(ForminatorFormNewTabRedirect.url, '_blank');
+					}
+				}
+			});
+		</script>
+			</body>
+</html>

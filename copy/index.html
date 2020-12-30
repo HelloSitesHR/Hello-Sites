@@ -1,9 +1,84 @@
 <!DOCTYPE html>
+
 <html>
-  <head>
   
-  </head>
-  <body>
-    <iframe src="https://www.google.com/"></iframe>
-  </body>
+<head>
+<meta charset="UTF-8">
+<title>Inside</title>
+
+<style>
+*{
+font-family : sans-serif;
+}
+object{
+width: 90vw;
+height: 80vh;
+border: 0;
+border-radius: 10px;
+overflow: hidden;
+position : fixed;
+left : 5vw;
+top: 10vh;
+transition : box-shadow 500ms;
+}
+object:hover{
+box-shadow: 0 0 20px 10px rgba(0,0,0,0.4);
+}
+main {
+width: 90vw;
+height: 80vh;
+position : fixed;
+left : 5vw;
+top: 0;
+}
+
+button {
+height: 4vh;
+margin-top : 2vh;
+margin-left: 1vw;
+color: #000;
+font-weight: bold;
+border: 0;
+border-radius: 5px;
+transition: padding 200ms;
+}
+button:hover {
+padding: 5px 10px 5px 10px;
+}
+main {
+text-align : right;
+}
+p{
+position:fixed;
+bottom: 2vh;
+}
+
+</style>  
+  
+</head>
+  
+<body>
+
+<h1 style="padding-left: 5vw; margin: 0;">Inside</h1>
+<main>
+<button onclick="changeTo('https://g1.globo.com/')">G1</button>
+<button onclick="changeTo('https://www.eucomosim.com/')">Eu Como Sim</button>
+<button onclick="changeTo('https://www.mdsaude.com/obesidade/dicas-para-perder-peso/')">MD</button>
+<button onclick="changeTo('https://rockcontent.com/br/blog/o-que-e-marketing/')">Rock Content</button>
+<button onclick="changeTo('https://seguranca.uol.com.br/antivirus/dicas/curiosidades/5-grandes-perigos-da-internet.html')">UOL</button>
+</main>
+
+
+<div>
+<object id="panel" type="text/html" data="https://hellosites.ml/">
+</iframe>
+  
+</div>
+<script>
+function changeTo(url){
+document.getElementById('panel').data = url
+}
+</script>
+</body>
+
 </html>
